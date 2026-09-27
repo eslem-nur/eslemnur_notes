@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eslem Nur Çetin | Word Learning Through Stories</title>
+    <meta name="description" content="Arabic word learning through Quranic stories.">
+    
+    <meta name="keywords" content="Islamic Studies, Web Development, Tafsir, Arabic, Proton, Eslem Nur Çetin, Imam Hatip, Digital Notes, Science">
+    <meta name="author" content="Eslem Nur Çetin">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph (Social Media Sharing) -->
+    <meta property="og:title" content="Eslem Nur | Knowledge & Code">
+    <meta property="og:description" content="Arabic word learning through Quranic stories.">
+    <meta property="og:image" content="https://i.pinimg.com/736x/db/19/1b/db191b92415dc0bfb743dac29141a746.jpg">
+    <meta property="og:url" content="https://eslemnur.github.io/eslemnur_notes/en/">
+    <meta property="og:type" content="Web App">
+    <meta property="og:locale" content="en_US">
+
+    <!-- PWA Manifest Add -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/eslemnur_notes/PWA/png/apple-touch-icon4.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/eslemnur_notes/PWA/png/favicon4-96x96.png" />
+    <link rel="manifest" href="/eslemnur_notes/PWA/manifest/site4.webmanifest" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" type="image/svg+xml" href="/eslemnur_notes/PWA/svg/favicon4.svg" />
+    <link rel="shortcut icon" href="/eslemnur_notes/PWA/icon/favicon4.ico" />
+
+    <!-- PWA Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          // Remove leading dot (.sw.js), use only sw.js
+          navigator.serviceWorker.register('/eslemnur_notes/PWA/js-files/sw4.js', { scope: '/eslemnur_notes/' })
+            .then(reg => console.log('Service Worker successfully registered!', reg.scope))
+            .catch(err => console.log('Service Worker registration failed:', err));
+        });
+      }
+    </script>
+    
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- Color Palette & Themes --- */
+        :root {
+            --primary-color: #B76E79;
+            --secondary-color: #FDF2F5;
+            --button-bg: #D4A5A5;
+            --button-hover: #C58F8F;
+            --accent-color: #9E7F7F;
+            --bg-color: #FFF9F9;
+            --card-bg: #FFFFFF;
+            --text-color: #4E342E;
+            --text-light: #8D6E63;
+            --border-color: #F0E6E6;
+            --note-bg: #FFF0F5;
+            --soft-shadow: 0 4px 15px rgba(183, 110, 121, 0.15);
+            --header-bg: rgba(255, 249, 249, 0.95);
+            --gold-accent: #C8A2A2;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #E08E98;
+            --secondary-color: #2D2D2D;
+            --button-bg: #A07070;
+            --button-hover: #805050;
+            --accent-color: #C0A0A0;
+            --bg-color: #1A1A1A;
+            --card-bg: #252525;
+            --text-color: #EAEAEA;
+            --text-light: #B0B0B0;
+            --border-color: #444444;
+            --note-bg: #333333;
+            --soft-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            --header-bg: rgba(26, 26, 26, 0.95);
+        }
+
+        /* --- Basic Settings --- */
+        html { scroll-behavior: smooth; }
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+        body { font-family: 'Inter', 'Segoe UI', sans-serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.7; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
+        ul { list-style: none; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- Header --- */
+        header { background: var(--header-bg); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-color); padding: 15px 0; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--primary-color); display: flex; align-items: center; gap: 10px; }
+        .logo span { font-family: 'Scheherazade New', serif; font-size: 1.2rem; color: var(--accent-color); }
+        
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { font-weight: 400; color: var(--text-color); font-size: 0.95rem; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--primary-color); transition: width 0.3s; }
+        .nav-links a:hover::after { width: 100%; }
+        
+        .theme-toggle { background: transparent; border: 2px solid var(--border-color); color: var(--text-color); width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-right: 15px; transition: all 0.3s ease; }
+        .theme-toggle:hover { background: var(--note-bg); border-color: var(--primary-color); color: var(--primary-color); }
+        .hamburger { display: none !important; font-size: 1.8rem; color: var(--primary-color); cursor: pointer; padding: 10px; margin-left: auto; background: none; border: none; }
+
+        /* --- Main Content --- */
+        .app-section { padding: 60px 0; }
+        .app-header { text-align: center; margin-bottom: 50px; }
+        .basmala { 
+            font-family: 'Scheherazade New', serif; 
+            font-size: 2.5rem; 
+            color: var(--primary-color); 
+            margin-bottom: 2rem; 
+            display: block; 
+            direction: rtl;
+            font-weight: 700;
+        }
+        .app-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--text-color); margin-bottom: 15px; }
+        .app-subtitle { color: var(--text-light); font-size: 1.1rem; }
+
+        /* --- Story Mode Selector --- */
+        .story-selector {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .story-btn {
+            padding: 10px 20px;
+            border: 2px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .story-btn.active, .story-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .word-card { 
+            background: var(--secondary-color);
+            background-image: none;          
+            border-radius: 20px; 
+            padding: 40px; 
+            text-align: center; 
+            box-shadow: var(--soft-shadow); 
+            border: 1px solid var(--border-color);
+            max-width: 700px;
+            margin: 0 auto 30px;
+            animation: fadeIn 0.5s ease;
+            position: relative;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        [data-theme="dark"] .word-card::before {
+            border-color: #8B6A75;           
+            opacity: 0.4;
+        }
+
+        .word-card::before {
+            content: '';
+            position: absolute;
+            top: 15px; left: 15px; right: 15px; bottom: 15px;
+            border: 2px solid var(--gold-accent);
+            border-radius: 15px;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .arabic-word { 
+            font-family: 'Scheherazade New', serif; 
+            font-size: 4rem; 
+            color: var(--primary-color); 
+            direction: rtl; 
+            margin-bottom: 15px;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .pronunciation { 
+            font-size: 1.4rem; 
+            color: var(--accent-color); 
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .meaning { 
+            font-size: 1.8rem; 
+            color: var(--text-color); 
+            margin-bottom: 20px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+        }
+
+        .context-card {
+            background: var(--card-bg);     
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 25px;
+            border: 1px solid var(--accent-color);
+            position: relative;
+            text-align: right;
+            box-shadow: 0 2px 10px rgba(183, 110, 121, 0.1);
+        }
+
+        [data-theme="dark"] .context-card {
+            background: var(--card-bg);
+            border: 1px solid var(--accent-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+        .context-label {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 10px;
+            display: block;
+            text-align: left;
+        }
+        .context-arabic {
+            font-family: 'Scheherazade New', serif;
+            font-size: 1.6rem;
+            direction: rtl;
+            text-align: right;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+        .highlight-word {
+            color: var(--primary-color);
+            font-weight: 700;
+            text-decoration: underline;
+            text-decoration-color: var(--gold-accent);
+            text-underline-offset: 4px;
+        }
+        .context-translation {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-top: 10px;
+            font-style: italic;
+            border-top: 1px dashed var(--border-color);
+            padding-top: 10px;
+            text-align: left;
+        }
+
+        .root-badge {
+            display: inline-block;
+            background: var(--note-bg);
+            color: var(--primary-color);
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-weight: 600;
+            margin-top: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* --- Buttons --- */
+        .btn-primary { 
+            display: inline-block; 
+            padding: 12px 35px; 
+            background-color: var(--primary-color); 
+            color: white; 
+            border-radius: 30px; 
+            font-weight: 600; 
+            transition: all 0.3s ease; 
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn-primary:hover { 
+            background-color: var(--button-hover); 
+            transform: translateY(-3px); 
+            box-shadow: 0 6px 20px rgba(183, 110, 121, 0.4); 
+        }
+
+        .btn-outline { 
+            display: inline-block; 
+            padding: 10px 30px; 
+            background: none; 
+            border: 2px solid var(--primary-color); 
+            color: var(--primary-color); 
+            border-radius: 30px; 
+            font-weight: 600; 
+            transition: all 0.3s; 
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+        .btn-outline:hover { 
+            background-color: var(--primary-color); 
+            color: white; 
+            box-shadow: 0 4px 10px rgba(183, 110, 121, 0.4); 
+        }
+
+        .audio-btn {
+            background: var(--note-bg);
+            color: var(--primary-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            border: 2px solid var(--border-color);
+            cursor: pointer;
+            transition: all 0.3s;
+            vertical-align: middle;
+            margin: 0 10px;
+        }
+        .audio-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.1);
+        }
+        .audio-btn.playing {
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+        /* --- Progress --- */
+        .progress-container { 
+            background: var(--card-bg); 
+            border-radius: 20px; 
+            padding: 30px; 
+            margin: 30px auto; 
+            max-width: 700px; 
+            box-shadow: var(--soft-shadow);
+            border: 1px solid var(--border-color);
+            animation: fadeIn 0.5s ease;
+        }
+        .level-info { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .progress-bar { width: 100%; height: 12px; background: var(--border-color); border-radius: 10px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary-color), var(--button-bg)); border-radius: 10px; transition: width 0.5s ease; min-width: 2%; }
+        
+        .story-progress {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        /* --- Control Panel --- */
+        .controls { display: flex; justify-content: center; gap: 15px; margin-top: 30px; flex-wrap: wrap; align-items: center; }
+
+        /* --- Footer --- */
+        footer.app-footer { background: var(--card-bg); border-top: 1px solid var(--border-color); padding: 40px 0; text-align: center; margin-top: 60px; }
+        .footer-arabic { font-family: 'Scheherazade New', serif; font-size: 1.5rem; color: var(--primary-color); margin-bottom: 15px; direction: rtl; }
+        .copyright { font-size: 0.85rem; color: var(--text-light); }
+        .source-note { font-size: 0.75rem; color: var(--text-light); margin-top: 10px; font-style: italic; }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .app-title { font-size: 1.8rem; }
+            .arabic-word { font-size: 3rem; }
+            .hamburger { display: block !important; }
+            .nav-links { display: none; }
+            .nav-links.active { 
+                display: flex !important; 
+                position: absolute; 
+                top: 70px; left: 0; width: 100%; 
+                background: var(--card-bg); 
+                flex-direction: column; 
+                text-align: center; 
+                padding: 20px 0; 
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
+                border-bottom-left-radius: 20px; 
+                border-bottom-right-radius: 20px; 
+                z-index: 1000; 
+            }
+            .nav-links a { display: block; padding: 15px; border-bottom: 1px solid var(--border-color); }
+            .story-btn { width: 100%; margin-bottom: 10px; }
+            .controls { flex-direction: column; align-items: center; }
+            .btn-outline, .btn-primary { width: 100%; max-width: 300px; }
+            .audio-btn { margin: 10px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo"><span>بسم الله</span> Eslem Nur Çetin</a>
+                <button id="themeToggle" class="theme-toggle" aria-label="Change Theme"><i class="fas fa-moon" aria-hidden="true"></i></button>
+                <button class="hamburger" onclick="toggleMenu()" aria-label="Open Menu">☰</button>
+                <div class="nav-links">
+                    <a href="https://eslemnur-notes.github.io/eslemnur_notes/en.html#about">About</a>
+                    <a href="https://eslemnur-notes.github.io/eslemnur_notes/en.html#skills">Skills</a>
+                    <a href="https://eslemnur-notes.github.io/eslemnur_notes/en.html#skills">Certifications</a>
+                    <a href="https://eslemnur-notes.github.io/eslemnur_notes/en.html#projects">Projects</a>
+                    <a href="https://eslemnur-notes.github.io/eslemnur_notes/en.html#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN APPLICATION AREA -->
+    <section class="app-section">
+        <div class="container">
+            <div class="app-header">
+                <div class="basmala">بسم الله الرحمن الرحيم</div>
+                <h1 class="app-title">Ayet-i Kelim</h1>
+                <p class="app-subtitle">Learn the word within the Quranic context, through stories.</p>
+            </div>
+
+            <!-- STORY SELECTION -->
+            <div class="story-selector">
+                <button class="story-btn active" onclick="selectStory('eyyub')">Ayub A.S.</button>
+                <button class="story-btn" onclick="selectStory('musas')">Moses A.S.</button>
+                <button class="story-btn" onclick="selectStory('yusuf')">Joseph A.S.</button>
+                <button class="story-btn" onclick="selectStory('random')">Random</button>
+            </div>
+
+            <!-- PROGRESS -->
+            <div class="progress-container">
+                <div class="level-info">
+                    <span><strong>Story:</strong> <span id="currentStoryName">Ayub A.S.</span></span>
+                    <span><strong>Word:</strong> <span id="learnedCount">0</span>/<span id="totalWords">26</span></span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                </div>
+                <div class="story-progress" id="storyProgressText">
+                    You are learning key words from Ayub A.S.'s story of patience.
+                </div>
+            </div>
+
+            <!-- WORD CARD -->
+            <div id="wordCard" class="word-card">
+                <div class="loading" style="padding: 50px; color: var(--text-light);">🔄 Loading...</div>
+            </div>
+
+            <!-- CONTROL BUTTONS -->
+            <div class="controls">
+                <button onclick="previousWord()" class="btn-outline"><i class="fas fa-arrow-left"></i> Previous</button>
+                <button onclick="playAudio()" class="audio-btn" title="Listen to Pronunciation"><i class="fas fa-volume-up"></i></button>
+                <button onclick="nextWord()" class="btn-primary">Next Word <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="app-footer">
+        <div class="container">
+            <div class="footer-arabic">رَبِّ زِدْنَا عِلْمًا</div>
+            <p>Oh Allah, increase us in knowledge.</p>
+            <p class="copyright">© <span id="current-year"></span> Ayet-i Kelim Project.</p>
+            <p class="source-note">Source: Quran Readings and Stories</p>
+            <div style="margin-top: 20px;">
+                <button onclick="resetProgress()" class="btn-outline" style="font-size: 0.8rem; padding: 5px 15px;">Reset Progress</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        
+        const stories = { 
+            eyyub: {
+                name: "Ayub A.S. (Story of Patience)",
+                description: "Al-Anbiya 83-84: Ayub A.S.'s supplication to his Lord and the acceptance of his prayer.",
+                words: [
+                    { id: 1, word: "وَأَيُّوبَ", pronunciation: "Wa Ayyūba", meaning: "And [mention] Ayub", root: "ع-ي-ب", contextArabic: "وَأَيُّوبَ إِذْ نَادَىٰ رَبَّهُ", contextTranslation: "[And] Ayub, when he called to his Lord [for aid]", highlightIndex: 0 },
+                    { id: 2, word: "إِذْ", pronunciation: "Idh", meaning: "When, at that time", root: "إ-ذ-ذ", contextArabic: "إِذْ نَادَىٰ رَبَّهُ", contextTranslation: "When he called to his Lord [for aid]", highlightIndex: 0 },
+                    { id: 3, word: "نَادَىٰ", pronunciation: "Nādhā", meaning: "To call, to supplicate", root: "ن-د-و", contextArabic: "نَادَىٰ رَبَّهُ", contextTranslation: "He called to his Lord [for aid]", highlightIndex: 0 },
+                    { id: 4, word: "رَبَّهُ", pronunciation: "Rabbihi", meaning: "His Lord", root: "ر-ب-ب", contextArabic: "نَادَىٰ رَبَّهُ", contextTranslation: "He called to his Lord [for aid]", highlightIndex: 1 },
+                    { id: 5, word: "أَنِّي", pronunciation: "Anni", meaning: "Indeed I, truly I", root: "أ-ن-ن", contextArabic: "أَنِّي مَسَّنِيَ الضُّرُّ", contextTranslation: "'Indeed adversity has touched me'", highlightIndex: 0 },
+                    { id: 6, word: "مَسَّنِيَ", pronunciation: "Massaniya", meaning: "Touched me, afflicted me", root: "م-س-س", contextArabic: "أَنِّي مَسَّنِيَ الضُّرُّ", contextTranslation: "'Indeed adversity has touched me'", highlightIndex: 1 },
+                    { id: 7, word: "الضُّرُّ", pronunciation: "Ad-Durru", meaning: "Adversity, harm, hardship", root: "ض-ر-ر", contextArabic: "أَنِّي مَسَّنِيَ الضُّرُّ", contextTranslation: "'Indeed adversity has touched me'", highlightIndex: 2 },
+                    { id: 8, word: "وَأَنتَ", pronunciation: "Wa anta", meaning: "And You", root: "أ-ن-ت", contextArabic: "وَأَنتَ أَرْحَمُ الرَّاحِمِينَ", contextTranslation: "'But You are the Most Merciful of the merciful'", highlightIndex: 0 },
+                    { id: 9, word: "أَرْحَمُ", pronunciation: "Arhamu", meaning: "Most Merciful", root: "ر-ح-م", contextArabic: "وَأَنتَ أَرْحَمُ الرَّاحِمِينَ", contextTranslation: "'But You are the Most Merciful of the merciful'", highlightIndex: 1 },
+                    { id: 10, word: "الرَّاحِمِينَ", pronunciation: "Ar-Rahīmīna", meaning: "The Merciful Ones", root: "ر-ح-م", contextArabic: "وَأَنتَ أَرْحَمُ الرَّاحِمِينَ", contextTranslation: "'But You are the Most Merciful of the merciful'", highlightIndex: 2 },
+                    { id: 11, word: "فَاسْتَجَبْنَا", pronunciation: "Fa-istajabatnā", meaning: "So We answered him", root: "س-ج-ب", contextArabic: "فَاسْتَجَبْنَا لَهُ", contextTranslation: "So We responded to him", highlightIndex: 0 },
+                    { id: 12, word: "لَهُ", pronunciation: "Lahu", meaning: "To him (Ayub)", root: "ل-ه", contextArabic: "فَاسْتَجَبْنَا لَهُ", contextTranslation: "So We responded to him", highlightIndex: 1 },
+                    { id: 13, word: "فَكَشَفْنَا", pronunciation: "Fakashafnā", meaning: "So We removed", root: "ك-ش-ف", contextArabic: "فَكَشَفْنَا مَا بِهِ مِن ضُرٍّ", contextTranslation: "And We removed what affliction he had", highlightIndex: 0 },
+                    { id: 14, word: "مَا", pronunciation: "Mā", meaning: "Whatever", root: "م-ا", contextArabic: "فَكَشَفْنَا مَا بِهِ مِن ضُرٍّ", contextTranslation: "And We removed what affliction he had", highlightIndex: 1 },
+                    { id: 15, word: "بِهِ", pronunciation: "Bihi", meaning: "With him, in him", root: "ب-ه", contextArabic: "فَكَشَفْنَا مَا بِهِ مِن ضُرٍّ", contextTranslation: "And We removed what affliction he had", highlightIndex: 2 },
+                    { id: 16, word: "مِن", pronunciation: "Min", meaning: "From, any", root: "م-ن", contextArabic: "مِن ضُرٍّ", contextTranslation: "What affliction he had.", highlightIndex: 0 },
+                    { id: 17, word: "ضُرٍّ", pronunciation: "Durrin", meaning: "Affliction, harm, hardship", root: "ض-ر-ر", contextArabic: "مِن ضُرٍّ", contextTranslation: "What affliction he had.", highlightIndex: 1 },
+                    { id: 18, word: "وَآتَيْنَاهُ", pronunciation: "Wa ātaynāhu", meaning: "And We gave him", root: "أ-ت-ي", contextArabic: "وَآتَيْنَاهُ أَهْلَهُ", contextTranslation: "And We restored to him his family", highlightIndex: 0 },
+                    { id: 19, word: "أَهْلَهُ", pronunciation: "Ahlahu", meaning: "His family, household", root: "أ-ه-ل", contextArabic: "وَآتَيْنَاهُ أَهْلَهُ", contextTranslation: "And We restored to him his family", highlightIndex: 1 },
+                    { id: 20, word: "وَمِثْلَهُ", pronunciation: "Wa mithlahu", meaning: "And the like thereof", root: "م-ث-ل", contextArabic: "وَمِثْلَهُ مَعَهُمْ", contextTranslation: "And as much again with them", highlightIndex: 0 },
+                    { id: 21, word: "مَعَهُمْ", pronunciation: "Ma'ahum", meaning: "With them", root: "م-ع-ا", contextArabic: "وَمِثْلَهُ مَعَهُمْ", contextTranslation: "And as much again with them", highlightIndex: 1 },
+                    { id: 22, word: "رَحْمَةً", pronunciation: "Raḥmatan", meaning: "Mercy, as a mercy", root: "ر-ح-م", contextArabic: "رَحْمَةً مِّنْ عِندِنَا", contextTranslation: "As a mercy from Us", highlightIndex: 0 },
+                    { id: 23, word: "مِّن", pronunciation: "Min", meaning: "From, from Our", root: "م-ن", contextArabic: "رَحْمَةً مِّنْ عِندِنَا", contextTranslation: "As a mercy from Us", highlightIndex: 1 },
+                    { id: 24, word: "عِندِنَا", pronunciation: "ʿIndinā", meaning: "From Us, from Our side", root: "ع-ن-د", contextArabic: "رَحْمَةً مِّنْ عِندِنَا", contextTranslation: "As a mercy from Us", highlightIndex: 2 },
+                    { id: 25, word: "وَذِكْرَىٰ", pronunciation: "Wa dhikrā", meaning: "And a reminder, lesson", root: "ذ-ك-ر", contextArabic: "وَذِكْرَىٰ لِلْعَابِدِينَ", contextTranslation: "And an example for those who worship", highlightIndex: 0 },
+                    { id: 26, word: "لِلْعَابِدِينَ", pronunciation: "Lil-ʿābidīna", meaning: "For the worshippers, servants", root: "ع-ب-د", contextArabic: "وَذِكْرَىٰ لِلْعَابِدِينَ", contextTranslation: "And an example for those who worship", highlightIndex: 1 }
+                ]
+            },
+            musas: {
+                name: "Moses A.S. (Pharaoh Story)",
+                description: "Ta-Ha 9-12, 17-21: Moses A.S.'s encounter with the fire and the miracles.",
+                words: [
+                    { id: 1, word: "وَإِذْ", pronunciation: "Wa-idh", meaning: "And when", root: "إ-ذ-ذ", contextArabic: "وَإِذْ نَادَىٰ رَبُّكَ مُوسَىٰ", contextTranslation: "[And] when your Lord called Moses,", highlightIndex: 0 },
+                    { id: 2, word: "نَادَىٰ", pronunciation: "Nādā", meaning: "To call, summon", root: "ن-د-و", contextArabic: "وَإِذْ نَادَىٰ رَبُّكَ مُوسَىٰ", contextTranslation: "When your Lord called Moses,", highlightIndex: 1 },
+                    { id: 3, word: "رَبُّكَ", pronunciation: "Rabbuka", meaning: "Your Lord", root: "ر-ب-ب", contextArabic: "وَإِذْ نَادَىٰ رَبُّكَ مُوسَىٰ", contextTranslation: "When your Lord called Moses,", highlightIndex: 2 },
+                    { id: 4, word: "مُوسَىٰ", pronunciation: "Mūsā", meaning: "Moses", root: "م-و-س", contextArabic: "وَإِذْ نَادَىٰ رَبُّكَ مُوسَىٰ", contextTranslation: "When your Lord called Moses,", highlightIndex: 3 },
+                    { id: 5, word: "أَنِ", pronunciation: "Ani", meaning: "That, indeed", root: "أ-ن-ن", contextArabic: "أَنِ اقْتُلِ الْفِرْعَوْنَ", contextTranslation: "'Go to Pharaoh, indeed he has transgressed'", highlightIndex: 0 },
+                    { id: 6, word: "اقْتُلِ", pronunciation: "U'ti", meaning: "Come, go", root: "أ-ت-ي", contextArabic: "أَنِ اقْتُلِ الْفِرْعَوْنَ", contextTranslation: "'Go to Pharaoh'", highlightIndex: 1 },
+                    { id: 7, word: "الْفِرْعَوْنَ", pronunciation: "Al-Firʿawna", meaning: "Pharaoh", root: "ف-ر-ع", contextArabic: "أَنِ اقْتُلِ الْفِرْعَوْنَ", contextTranslation: "'Go to Pharaoh'", highlightIndex: 2 },
+                    { id: 8, word: "إِنَّهُ", pronunciation: "Innahu", meaning: "Indeed he", root: "أ-ن-ن", contextArabic: "إِنَّهُ طَغَىٰ", contextTranslation: "Indeed he has transgressed.", highlightIndex: 0 },
+                    { id: 9, word: "طَغَىٰ", pronunciation: "Ṭaghā", meaning: "Transgressed, rebelled", root: "ط-غ-و", contextArabic: "إِنَّهُ طَغَىٰ", contextTranslation: "Indeed he has transgressed.", highlightIndex: 1 },
+                    { id: 10, word: "قَالَ", pronunciation: "Qāla", meaning: "He said", root: "ق-و-ل", contextArabic: "قَالَ رَبِّ", contextTranslation: "He said, 'My Lord!'", highlightIndex: 0 },
+                    { id: 11, word: "رَبِّ", pronunciation: "Rabbi", meaning: "My Lord", root: "ر-ب-ب", contextArabic: "قَالَ رَبِّ", contextTranslation: "He said, 'My Lord!'", highlightIndex: 1 },
+                    { id: 12, word: "إِنِّي", pronunciation: "Innī", meaning: "Indeed I", root: "أ-ن-ن", contextArabic: "إِنِّي أَخَافُ", contextTranslation: "Indeed I fear [they will deny me]", highlightIndex: 0 },
+                    { id: 13, word: "أَخَافُ", pronunciation: "Akhāfu", meaning: "I fear", root: "خ-و-ف", contextArabic: "إِنِّي أَخَافُ", contextTranslation: "Indeed I fear [they will deny me]", highlightIndex: 1 },
+                    { id: 14, word: "يُكَذِّبُونِ", pronunciation: "Yukadhdhibūni", meaning: "They deny me", root: "ك-ذ-ب", contextArabic: "أَن يُكَذِّبُونِ", contextTranslation: "That they will deny me.", highlightIndex: 0 },
+                    { id: 15, word: "فَأَلْقِ", pronunciation: "Fa-alqi", meaning: "So cast", root: "أ-ل-ق", contextArabic: "فَأَلْقِ عَصَاكَ", contextTranslation: "So cast down your staff.", highlightIndex: 0 },
+                    { id: 16, word: "عَصَاكَ", pronunciation: "ʿAṣāka", meaning: "Your staff", root: "ع-ص-و", contextArabic: "فَأَلْقِ عَصَاكَ", contextTranslation: "So cast down your staff.", highlightIndex: 1 },
+                    { id: 17, word: "فَلَمَّا", pronunciation: "Falammā", meaning: "Then when", root: "ل-م-ا", contextArabic: "فَلَمَّا أَلْقَاهَا", contextTranslation: "And when he threw it,", highlightIndex: 0 },
+                    { id: 18, word: "أَلْقَاهَا", pronunciation: "Alqāhā", meaning: "Cast it", root: "أ-ل-ق", contextArabic: "فَلَمَّا أَلْقَاهَا", contextTranslation: "And when he threw it,", highlightIndex: 1 },
+                    { id: 19, word: "إِذَا", pronunciation: "Idhā", meaning: "Behold", root: "إ-ذ-ذ", contextArabic: "إِذَا هِيَ حَيَّةٌ", contextTranslation: "Behold, it was a snake!", highlightIndex: 0 },
+                    { id: 20, word: "هَا", pronunciation: "Hā", meaning: "This (demonstrative)", root: "ه-ا-ء", contextArabic: "إِذَا هِيَ حَيَّةٌ", contextTranslation: "Behold, it was a snake!", highlightIndex: 1 },
+                    { id: 21, word: "هِيَ", pronunciation: "Hiya", meaning: "It (feminine)", root: "ه-و-ا", contextArabic: "إِذَا هِيَ حَيَّةٌ", contextTranslation: "Behold, it was a snake!", highlightIndex: 2 },
+                    { id: 22, word: "حَيَّةٌ", pronunciation: "Ḥayyatun", meaning: "Snake", root: "ح-ي-ي", contextArabic: "إِذَا هِيَ حَيَّةٌ", contextTranslation: "Behold, it was a snake!", highlightIndex: 3 },
+                    { id: 23, word: "خُذْهَا", pronunciation: "Khuzhā", meaning: "Take it", root: "أ-خ-ذ", contextArabic: "خُذْهَا وَلَا تَخَفْ", contextTranslation: "Take it and do not fear.", highlightIndex: 0 },
+                    { id: 24, word: "وَلَا", pronunciation: "Wa lā", meaning: "And do not", root: "ل-ي-س", contextArabic: "خُذْهَا وَلَا تَخَفْ", contextTranslation: "Take it and do not fear.", highlightIndex: 1 },
+                    { id: 25, word: "تَخَفْ", pronunciation: "Takhaf", meaning: "Do not fear", root: "خ-و-ف", contextArabic: "خُذْهَا وَلَا تَخَفْ", contextTranslation: "Take it and do not fear.", highlightIndex: 2 },
+                    { id: 26, word: "سَنُعِيدُوهَا", pronunciation: "Sanuʿīduhā", meaning: "We will return it", root: "ع-و-د", contextArabic: "سَنُعِيدُوهَا سِيرَتَهَا الْأُولَىٰ", contextTranslation: "We will return it to its former condition.", highlightIndex: 0 }
+                ]
+            },
+            yusuf: {
+                name: "Joseph A.S. (Beautiful Story)",
+                description: "Yusuf 1-4: Joseph A.S.'s dream and his brothers' jealousy.",
+                words: [
+                    { id: 1, word: "الر", pronunciation: "Alif Lām Rā", meaning: "Alif, Lam, Ra", root: "ر-ء-ي", contextArabic: "الر ۚ تِلْكَ آيَاتُ الْكِتَابِ الْمُبِينِ", contextTranslation: "Alif, Lam, Ra. These are the verses of the clear Book.", highlightIndex: 0 },
+                    { id: 2, word: "تِلْكَ", pronunciation: "Tilka", meaning: "These", root: "ت-ل-ك", contextArabic: "تِلْكَ آيَاتُ الْكِتَابِ الْمُبِينِ", contextTranslation: "These are the verses of the clear Book.", highlightIndex: 0 },
+                    { id: 3, word: "آيَاتُ", pronunciation: "Āyātu", meaning: "Verses", root: "أ-ي-ت", contextArabic: "تِلْكَ آيَاتُ الْكِتَابِ الْمُبِينِ", contextTranslation: "These are the verses of the clear Book.", highlightIndex: 1 },
+                    { id: 4, word: "الْكِتَابِ", pronunciation: "Al-Kitābi", meaning: "The Book", root: "ك-ت-ب", contextArabic: "تِلْكَ آيَاتُ الْكِتَابِ الْمُبِينِ", contextTranslation: "These are the verses of the clear Book.", highlightIndex: 2 },
+                    { id: 5, word: "الْمُبِينِ", pronunciation: "Al-Mubīn", meaning: "Clear, manifest", root: "ب-ي-ن", contextArabic: "تِلْكَ آيَاتُ الْكِتَابِ الْمُبِينِ", contextTranslation: "These are the verses of the clear Book.", highlightIndex: 3 },
+                    { id: 6, word: "إِنَّا", pronunciation: "Innā", meaning: "Indeed We", root: "أ-ن-ن", contextArabic: "إِنَّا أَنزَلْنَاهُ قُرْآنًا عَرَبِيًّا لَّعَلَّكُمْ تَعْقِلُونَ", contextTranslation: "Indeed, We have sent it down as an Arabic Qur'an that you might understand.", highlightIndex: 0 },
+                    { id: 7, word: "أَنزَلْنَاهُ", pronunciation: "Anzalnāhu", meaning: "We revealed it", root: "ن-ز-ل", contextArabic: "إِنَّا أَنزَلْنَاهُ قُرْآنًا عَرَبِيًّا", contextTranslation: "Indeed We revealed it as an Arabic Qur'an", highlightIndex: 1 },
+                    { id: 8, word: "قُرْآنًا", pronunciation: "Qur'ānan", meaning: "Qur'an", root: "ق-ر-أ", contextArabic: "أَنزَلْنَاهُ قُرْآنًا عَرَبِيًّا", contextTranslation: "We revealed it as an Arabic Qur'an", highlightIndex: 1 },
+                    { id: 9, word: "عَرَبِيًّا", pronunciation: "ʿArabīyyan", meaning: "Arabic", root: "ع-ر-ب", contextArabic: "قُرْآنًا عَرَبِيًّا", contextTranslation: "As an Arabic Qur'an", highlightIndex: 1 },
+                    { id: 10, word: "لَّعَلَّكُمْ", pronunciation: "Laʿallakum", meaning: "That you may", root: "ل-ع-ل", contextArabic: "لَّعَلَّكُمْ تَعْقِلُونَ", contextTranslation: "That you might understand.", highlightIndex: 0 },
+                    { id: 11, word: "تَعْقِلُونَ", pronunciation: "Taʿqilūna", meaning: "You understand", root: "ع-ق-ل", contextArabic: "لَّعَلَّكُمْ تَعْقِلُونَ", contextTranslation: "That you might understand.", highlightIndex: 1 },
+                    { id: 12, word: "إِذْ", pronunciation: "Idh", meaning: "When", root: "إ-ذ-ذ", contextArabic: "إِذْ قَالَ يُوسُفُ لِأَبِيهِ يَا أَبَتِ", contextTranslation: "[Remember] when Joseph said to his father, 'O my father,'", highlightIndex: 0 },
+                    { id: 13, word: "قَالَ", pronunciation: "Qāla", meaning: "He said", root: "ق-و-ل", contextArabic: "إِذْ قَالَ يُوسُفُ", contextTranslation: "When Joseph said,", highlightIndex: 1 },
+                    { id: 14, word: "يُوسُفُ", pronunciation: "Yūsufu", meaning: "Joseph", root: "ي-س-ف", contextArabic: "إِذْ قَالَ يُوسُفُ", contextTranslation: "When Joseph said,", highlightIndex: 2 },
+                    { id: 15, word: "لِأَبِيهِ", pronunciation: "Li-abīhi", meaning: "To his father", root: "أ-ب-و", contextArabic: "قَالَ يُوسُفُ لِأَبِيهِ", contextTranslation: "Joseph said to his father", highlightIndex: 1 },
+                    { id: 16, word: "يَا", pronunciation: "Yā", meaning: "O", root: "ي-ا", contextArabic: "يَا أَبَتِ", contextTranslation: "'O my father!'", highlightIndex: 0 },
+                    { id: 17, word: "أَبَتِ", pronunciation: "Abati", meaning: "O my father", root: "أ-ب-و", contextArabic: "يَا أَبَتِ", contextTranslation: "'O my father!'", highlightIndex: 1 },
+                    { id: 18, word: "إِنِّي", pronunciation: "Innī", meaning: "Indeed I", root: "أ-ن-ن", contextArabic: "إِنِّي رَأَيْتُ أَحَدَ عَشَرَ كَوْكَبًا", contextTranslation: "Indeed, I have seen eleven stars and the sun and the moon,", highlightIndex: 0 },
+                    { id: 19, word: "رَأَيْتُ", pronunciation: "Ra'aytu", meaning: "I saw", root: "ر-ء-ي", contextArabic: "رَأَيْتُ أَحَدَ عَشَرَ كَوْكَبًا", contextTranslation: "I saw eleven stars,", highlightIndex: 0 },
+                    { id: 20, word: "أَحَدَ", pronunciation: "Aḥada", meaning: "Eleven (one)", root: "أ-ح-د", contextArabic: "أَحَدَ عَشَرَ كَوْكَبًا", contextTranslation: "Eleven stars.", highlightIndex: 0 },
+                    { id: 21, word: "عَشَرَ", pronunciation: "ʿAshara", meaning: "Ten", root: "ع-ش-ر", contextArabic: "أَحَدَ عَشَرَ كَوْكَبًا", contextTranslation: "Eleven stars.", highlightIndex: 1 },
+                    { id: 22, word: "كَوْكَبًا", pronunciation: "Kawkaban", meaning: "Star", root: "ك-و-ك", contextArabic: "أَحَدَ عَشَرَ كَوْكَبًا", contextTranslation: "Eleven stars.", highlightIndex: 2 },
+                    { id: 23, word: "وَالشَّمْسَ", pronunciation: "Wa-shshamsa", meaning: "And the sun", root: "ش-م-س", contextArabic: "وَالشَّمْسَ وَالْقَمَرَ", contextTranslation: "And the sun and the moon,", highlightIndex: 0 },
+                    { id: 24, word: "وَالْقَمَرَ", pronunciation: "Wal-qamara", meaning: "And the moon", root: "ق-م-ر", contextArabic: "وَالشَّمْسَ وَالْقَمَرَ", contextTranslation: "And the sun and the moon,", highlightIndex: 1 },
+                    { id: 25, word: "أَرَاكَ", pronunciation: "Arāka", meaning: "I see you", root: "ر-ء-ي", contextArabic: "إِنِّي رَأَيْتُ أَحَدَ عَشَرَ كَوْكَبًا وَالشَّمْسَ وَالْقَمَرَ رَأَيْتُهُمْ لِي سَاجِدِينَ", contextTranslation: "I saw eleven stars and the sun and the moon prostrating themselves before me.", highlightIndex: 3 },
+                    { id: 26, word: "سَاجِدِينَ", pronunciation: "Sājidīna", meaning: "Prostrating", root: "س-ج-د", contextArabic: "رَأَيْتُهُمْ لِي سَاجِدِينَ", contextTranslation: "I saw them prostrating before me.", highlightIndex: 2 }
+                ]
+            },
+            random: {
+                name: "Random Words",
+                description: "Mixed words from all stories.",
+                words: []
+            }
+        };
+
+        
+        function initRandomMode() {
+            const allWords = [];
+            let idCounter = 1;
+            ['eyyub', 'musas', 'yusuf'].forEach(key => {
+                stories[key].words.forEach(word => {
+                    allWords.push({ ...word, id: idCounter++ });
+                });
+            });
+           
+            for (let i = allWords.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [allWords[i], allWords[j]] = [allWords[j], allWords[i]];
+            }
+            stories.random.words = allWords;
+        }
+
+        let currentStoryKey = 'eyyub';
+        let currentWordIndex = 0;
+        let currentWords = [];
+        let isRandomMode = false;
+
+        // Start
+        function initApp() {
+            initRandomMode();
+            loadTheme();
+            selectStory('eyyub');
+            updateYear();
+        }
+
+        // Theme Management
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+        }
+
+        function updateThemeIcon(theme) {
+            const icon = document.querySelector('#themeToggle i');
+            const btn = document.querySelector('#themeToggle');
+            if (theme === 'light') {
+                icon.className = 'fas fa-moon';
+                btn.setAttribute('aria-label', 'Switch to Dark Theme');
+            } else {
+                icon.className = 'fas fa-sun';
+                btn.setAttribute('aria-label', 'Switch to Light Theme');
+            }
+        }
+
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        // Menu Management
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Story Selection
+        window.selectStory = function(storyKey) {
+            currentStoryKey = storyKey;
+            isRandomMode = (storyKey === 'random');
+            
+            if (isRandomMode) {
+                currentWords = stories.random.words;
+                document.getElementById('currentStoryName').textContent = "Random Stories";
+                document.getElementById('storyProgressText').textContent = "You are learning mixed words from all stories.";
+            } else {
+                currentWords = stories[storyKey].words;
+               
+                const storyName = stories[storyKey].name.split('(')[0].trim();
+                document.getElementById('currentStoryName').textContent = storyName;
+                document.getElementById('storyProgressText').textContent = stories[storyKey].description;
+            }
+
+            currentWordIndex = 0;
+            
+            // Button active state
+            document.querySelectorAll('.story-btn').forEach(btn => {
+                btn.classList.remove('active');
+                const btnText = btn.textContent;
+                if (storyKey === 'random' && btnText.includes('Random')) btn.classList.add('active');
+                else if (storyKey === 'eyyub' && btnText.includes('Ayub')) btn.classList.add('active');
+                else if (storyKey === 'musas' && btnText.includes('Moses')) btn.classList.add('active');
+                else if (storyKey === 'yusuf' && btnText.includes('Joseph')) btn.classList.add('active');
+            });
+            
+            renderWord();
+            updateProgress(); 
+        };
+
+        // Update Progress Bar
+        function updateProgress() {
+            if (currentWords.length === 0) return;
+
+            const progress = ((currentWordIndex + 1) / currentWords.length) * 100;
+            const progressFill = document.getElementById('progressFill');
+            const learnedCount = document.getElementById('learnedCount');
+            const totalWords = document.getElementById('totalWords');
+
+            
+            progressFill.style.width = `${progress}%`;
+            learnedCount.textContent = currentWordIndex + 1;
+            totalWords.textContent = currentWords.length;
+        }
+
+        // Render Word to Screen
+        function renderWord() {
+            if (currentWords.length === 0) return;
+
+            const wordData = currentWords[currentWordIndex];
+            const wordCard = document.getElementById('wordCard');
+
+            // Build highlight logic
+            const contextParts = wordData.contextArabic.split(' ');
+            let highlightedContext = '';
+            contextParts.forEach((part, index) => {
+                if (index === wordData.highlightIndex) {
+                    highlightedContext += `<span class="highlight-word">${part}</span> `;
+                } else {
+                    highlightedContext += `${part} `;
+                }
+            });
+
+            // Card content
+            wordCard.innerHTML = `
+                <div class="arabic-word">${wordData.word}</div>
+                <div class="pronunciation">${wordData.pronunciation}</div>
+                <div class="meaning">${wordData.meaning}</div>
+                
+                <div class="root-badge">Root: ${wordData.root}</div>
+
+                <div class="context-card">
+                    <span class="context-label">Context (Verse):</span>
+                    <div class="context-arabic">${highlightedContext.trim()}</div>
+                    <div class="context-translation">${wordData.contextTranslation}</div>
+                </div>
+            `;
+        }
+
+        // Navigation Buttons (Must be added to Global Scope)
+        window.previousWord = function() {
+            if (currentWordIndex > 0) {
+                currentWordIndex--;
+                renderWord();
+            }
+        };
+
+        window.nextWord = function() {
+            if (currentWordIndex < currentWords.length - 1) {
+                currentWordIndex++;
+                renderWord();
+            }
+        };
+
+        // Audio Playback Simulation (Not real audio file) 
+        window.playAudio = function() {
+            const btn = document.querySelector('.audio-btn');
+            if (btn.classList.contains('playing')) return;
+            
+            btn.classList.add('playing');
+            console.log(`[AUDIO] Pronouncing "${currentWords[currentWordIndex].pronunciation}"...`);
+            
+            // Stop after 1.5 seconds (simulation)
+            setTimeout(() => {
+                btn.classList.remove('playing');
+            }, 1500);
+        };
+
+        window.resetProgress = function() {
+            if(confirm("Are you sure you want to reset progress?")) {
+                currentWordIndex = 0;
+                renderWord();
+                updateProgress();
+                alert("Progress reset.");
+            }
+        };
+
+        window.jumpRandom = function() {
+            if (currentWords.length === 0) return;
+            let newIndex;
+            do {
+                newIndex = Math.floor(Math.random() * currentWords.length);
+            } while (newIndex === currentWordIndex && currentWords.length > 1);
+            
+            currentWordIndex = newIndex;
+            renderWord();
+        };
+
+        // Year Update
+        function updateYear() {
+            const year = new Date().getFullYear();
+            document.getElementById('current-year').textContent = year;
+        }
+
+        // Keyboard Shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextWord();
+            if (e.key === 'ArrowLeft') previousWord();
+            if (e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                jumpRandom();
+            }
+        });
+
+        // Launch Application
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>

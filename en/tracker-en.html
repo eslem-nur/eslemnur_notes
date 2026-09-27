@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge & Worship Tracker | Eslem Nur Çetin</title>
+
+     <!-- SEO & Meta Tags -->
+    <meta name="description" content="Eslem Nur Çetin - Theology student and web developer's Knowledge & Worship Tracker. Quran notes and digital science projects.">
+    <meta name="keywords" content="Islamic Studies, Web Development, Tafsir, Arabic, Proton, Eslem Nur Çetin, Imam Hatip, Digital Notes, Worship">
+    <meta name="author" content="Eslem Nur Çetin">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph (Social Media Sharing) -->
+    <meta property="og:title" content="Eslem Nur | Knowledge & Worship Tracker">
+    <meta property="og:description" content="Student of knowledge and developer portfolio. Free educational notes and digital applications.">
+    <meta property="og:image" content="https://i.pinimg.com/736x/2f/ff/0f/2fff0fed341fd0c33b891233f1fd9c30.jpg">
+    <meta property="og:url" content="https://eslemnur.github.io/eslemnur_notes/en/">
+    <meta property="og:type" content="Web App">
+    <meta property="og:locale" content="en_US">
+
+    <!-- PWA Manifest Add -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/eslemnur_notes/PWA/png/apple-touch-icon4.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/eslemnur_notes/PWA/png/favicon4-96x96.png" />
+    <link rel="manifest" href="/eslemnur_notes/PWA/manifest/site4.webmanifest" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" type="image/svg+xml" href="/eslemnur_notes/PWA/svg/favicon4.svg" />
+    <link rel="shortcut icon" href="/eslemnur_notes/PWA/icon/favicon4.ico" />
+
+    <!-- PWA Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          // Remove leading dot (.sw.js), use only sw.js
+          navigator.serviceWorker.register('/eslemnur_notes/PWA/js-files/sw4.js', { scope: '/eslemnur_notes/' })
+            .then(reg => console.log('Service Worker successfully registered!', reg.scope))
+            .catch(err => console.log('Service Worker registration failed:', err));
+        });
+      }
+    </script>
+    
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* COLOR PALETTE */
+        :root {
+            --primary-color: #B76E79;
+            --secondary-color: #FDF5E6;
+            --button-bg: #D4A5A5;
+            --button-hover: #C58F8F;
+            --accent-color: #9E7F7F;
+            --bg-color: #FFF9F9;
+            --card-bg: #FFFFFF;
+            --text-color: #4E342E;
+            --text-light: #8D6E63;
+            --border-color: #F0E6E6;
+            --note-bg: #FFF0F5;
+            --soft-shadow: 0 4px 15px rgba(183, 110, 121, 0.15);
+            
+            /* Icon Styles */
+            --icon-color: #B76E79;
+        }
+
+        /* DARK MODE COLOR PALETTE */
+        [data-theme="dark"] {
+            --primary-color: #E08E98; 
+            --secondary-color: #2D2D2D;
+            --button-bg: #A07070;
+            --button-hover: #805050;
+            --accent-color: #C0A0A0;
+            --bg-color: #1A1A1A; 
+            --card-bg: #252525; 
+            --text-color: #EAEAEA; 
+            --text-light: #B0B0B0; 
+            --border-color: #444444;
+            --note-bg: #333333;
+            --soft-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            --icon-color: #E59CA8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: var(--soft-shadow);
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        /* --- SETTINGS BUTTON AND MENU --- */
+        .settings-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--note-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .settings-btn:hover {
+            transform: rotate(45deg);
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .settings-menu {
+            position: absolute;
+            top: 75px;
+            right: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: var(--soft-shadow);
+            display: none; 
+            z-index: 99;
+            width: 200px;
+            text-align: center;
+        }
+
+        .settings-menu.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        
+        .theme-toggle:hover {
+            background: var(--note-bg);
+        }
+
+        /* Header & Titles */
+        .header-section {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 20px; 
+        }
+
+        .basmala {
+            font-family: 'Scheherazade New', serif;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            direction: rtl;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 300;
+        }
+
+        /* Statistics Panel */
+        .stats-panel {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            background: var(--note-bg);
+            padding: 20px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border-color);
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-val {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        /* Level Card */
+        .level-container {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--card-bg) 100%);
+            border: 2px solid var(--button-bg);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .level-container::before {
+            content: '✿';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 5rem;
+            color: rgba(183, 110, 121, 0.1);
+            transform: rotate(15deg);
+        }
+
+        .level-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+        }
+
+        .level-title {
+            font-family: 'Scheherazade New', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-top: 5px;
+            text-transform: none;
+        }
+
+        .level-progress {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Input Area */
+        .input-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            align-items: center;
+        }
+
+        select {
+            flex: 1;
+            padding: 15px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            color: var(--text-color);
+            background: var(--bg-color);
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(183, 110, 121, 0.1);
+        }
+
+        .add-btn {
+            padding: 15px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(183, 110, 121, 0.3);
+        }
+
+        .add-btn:hover {
+            background-color: var(--button-hover);
+            transform: translateY(-2px);
+        }
+
+        /* List Area */
+        .task-list {
+            list-style: none;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+
+        /* Scrollbar Design */
+        .task-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        .task-list::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        .task-list::-webkit-scrollbar-thumb {
+            background: var(--button-bg);
+            border-radius: 10px;
+        }
+
+        .task-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--card-bg);
+            padding: 18px 20px;
+            border-radius: 15px;
+            margin-bottom: 12px;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .task-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--soft-shadow);
+            border-color: var(--button-bg);
+        }
+
+        .task-item.completed {
+            opacity: 0.7;
+            background: var(--note-bg);
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .task-item:not(.completed) {
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .task-info {
+            flex: 1;
+        }
+
+        .task-name {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin-bottom: 4px;
+        }
+
+        .task-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            display: flex;
+            gap: 10px;
+        }
+
+        .task-points {
+            background: var(--note-bg);
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-check, .btn-delete {
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            font-size: 1.1rem;
+        }
+
+        .btn-check {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            border: 1px solid var(--button-bg);
+        }
+
+        .btn-check:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-delete {
+            background: transparent;
+            color: var(--accent-color);
+            opacity: 0.6;
+        }
+
+        .btn-delete:hover {
+            opacity: 1;
+            color: #e74c3c;
+            background: rgba(231, 76, 60, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .container { padding: 25px; }
+            .settings-btn { width: 40px; height: 40px; top: 15px; right: 15px; }
+            .settings-menu { top: 65px; right: 15px; width: 180px; }
+            .input-group { flex-direction: column; }
+            .add-btn { width: 100%; }
+            h1 { font-size: 1.8rem; }
+            .stats-panel { grid-template-columns: 1fr; gap: 15px; }
+        }
+      
+      a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+      
+      .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+        }
+
+       .back-link:hover {
+            text-decoration: underline;
+      }
+      
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="https://eslemnur-notes.github.io/eslemnur_notes/en.html" class="back-link">← Return to Home</a>
+    <!-- Settings Button -->
+    <button class="settings-btn" onclick="toggleSettingsMenu()" title="Theme Settings">
+        ⚙️
+    </button>
+
+    <!-- Settings Menu -->
+    <div class="settings-menu" id="settingsMenu">
+        <div class="theme-toggle" onclick="toggleTheme()">
+            <span id="themeText">Dark Mode</span>
+            <span id="themeIcon">🌙</span>
+        </div>
+    </div>
+
+    <div class="header-section">
+        <div class="basmala">بسم الله الرحمن الرحيم</div>
+        <h1>Knowledge & Worship Tracker</h1>
+        <p class="subtitle">Track what you do for the pleasure of Allah, raise spiritual stations.</p>
+    </div>
+
+    <div class="stats-panel">
+        <div class="stat-box">
+            <div class="stat-val" id="totalPoints">0</div>
+            <div class="stat-label">Total Rewards</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-val" id="completedCount">0</div>
+            <div class="stat-label">Acts Completed</div>
+        </div>
+    </div>
+
+    <div class="level-container">
+                <div class="level-number" id="levelNumber">1</div>
+        <div class="level-title" id="levelTitle">Aspiring Believer</div>
+        <div class="level-progress" id="nextLevelInfo">50 more acts needed to reach next station</div>
+    </div>
+
+    <div class="input-group">
+        <select id="taskType">
+            <option value="5 Daily Prayers">5 Daily Prayers</option>
+            <option value="Quran Reading">Quran Reading</option>
+            <option value="Studying Lessons">Studying Lessons (Knowledge)</option>
+            <option value="Charity">Charity (Sadaqah)</option>
+            <option value="Library Visits">Library Visits</option>
+            <option value="Family Assistance">Family Assistance</option>
+            <option value="Patience">Patience & Gratitude</option>
+        </select>
+        <button class="add-btn" onclick="addTask()">Save Act of Worship</button>
+    </div>
+
+    <ul class="task-list" id="taskList">
+        <!-- Tasks will come here (New additions at top) -->
+    </ul>
+</div>
+
+
+<script>
+    // --- THEME MANAGEMENT (Dark/Light Mode) ---
+    const settingsMenu = document.getElementById('settingsMenu');
+    const themeText = document.getElementById('themeText');
+    const themeIcon = document.getElementById('themeIcon');
+    const htmlElement = document.documentElement;
+
+    // Check saved theme (Default 'light')
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    htmlElement.setAttribute('data-theme', savedTheme);
+    updateThemeUI(savedTheme);
+
+    // Open/close settings menu
+    function toggleSettingsMenu() {
+        settingsMenu.classList.toggle('active');
+    }
+
+    // Change theme
+    function toggleTheme() {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeUI(newTheme);
+    }
+
+    // Update text and icon in menu
+    function updateThemeUI(theme) {
+        if (theme === 'dark') {
+            themeText.textContent = 'Light Mode';
+            themeIcon.textContent = '☀️';
+        } else {
+            themeText.textContent = 'Dark Mode';
+            themeIcon.textContent = '🌙';
+        }
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const isClickInside = settingsMenu.contains(event.target) || event.target.classList.contains('settings-btn');
+        if (!isClickInside && settingsMenu.classList.contains('active')) {
+            settingsMenu.classList.remove('active');
+        }
+    });
+
+    // --- TASK LOGIC ---
+    
+    // Store Data in Browser
+    let tasks = JSON.parse(localStorage.getItem('studentTasks')) || [];
+
+    // Save Data and Update Interface Function
+    function saveData() {
+        try {
+            localStorage.setItem('studentTasks', JSON.stringify(tasks));
+            renderTasks();
+            updateStats();
+        } catch (e) {
+            console.error("Could not save data:", e);
+            alert("Browser storage may be full or permissions not granted. Please try clearing browser history.");
+        }
+    }
+
+    function addTask() {
+        const select = document.getElementById('taskType');
+        const type = select.value;
+        
+        // Get the text of selected option
+        const selectedOption = select.options[select.selectedIndex];
+        const name = selectedOption.text; 
+
+        const points = getPoints(type);
+        
+        const newTask = {
+            id: Date.now(),
+            name: name,
+            points: points,
+            completed: false,
+            date: new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+        };
+
+        tasks.push(newTask);
+        saveData();
+    }
+
+    function getPoints(type) {
+        if(type.includes("Prayers")) return 10;
+        if(type.includes("Quran")) return 5;
+        if(type.includes("Study")) return 3;
+        if(type.includes("Charity")) return 5;
+        return 2;
+    }
+
+    function toggleTask(id) {
+        const index = tasks.findIndex(t => t.id === id);
+        if (index !== -1) {
+            tasks[index].completed = !tasks[index].completed;
+            saveData();
+        }
+    }
+
+    function deleteTask(id) {
+        if(confirm("Are you sure you want to delete this act? (This action cannot be undone)")) {
+            const initialLength = tasks.length;
+            tasks = tasks.filter(t => t.id !== id);
+            
+            if (tasks.length < initialLength) {
+                saveData();
+            } else {
+                alert("Operation not found or already deleted.");
+            }
+        }
+    }
+
+    // Islamic Level Logic
+    function updateStats() {
+        const total = tasks.filter(t => t.completed).reduce((sum, t) => sum + t.points, 0);
+        const completed = tasks.filter(t => t.completed).length;
+        
+        document.getElementById('totalPoints').innerText = total;
+        document.getElementById('completedCount').innerText = completed;
+
+        const pointsPerLevel = 50;
+        let currentLevel = 1 + Math.floor(total / pointsPerLevel);
+        
+        const pointsNeeded = (currentLevel * pointsPerLevel) - total;
+        
+        const titles = [
+            "Aspiring Believer", "Student", "Righteous", "Mujahid", "Muhsin", 
+            "Verified", "Siddiq", "Perfect Believer", "Wise One", "Rabbani", 
+            "Greater Mujahid", "Owner of Knowledge", "People of Truth", "Servant of Allah", 
+            "Rabbani Mujahid", "Servant", "Best Guide", "Inspired One", 
+            "Straight Path", "People of Paradise"
+        ];
+
+        let titleIndex = currentLevel - 1;
+        let levelTitle = "Believer"; 
+
+        if (titleIndex < titles.length) {
+            levelTitle = titles[titleIndex];
+        } else {
+            levelTitle = `Perfect Believer (Lv. ${currentLevel})`;
+        }
+
+        document.getElementById('levelNumber').innerText = currentLevel;
+        document.getElementById('levelTitle').innerText = levelTitle;
+        
+        let progressText = "";
+        if (pointsNeeded <= 0 && total % pointsPerLevel === 0) {
+             progressText = "Station elevated! May Allah accept. 🤲";
+        } else {
+             let nextTitle = titles[Math.min(titleIndex + 1, titles.length - 1)];
+             progressText = `${pointsNeeded} more acts: to ${nextTitle} station`;
+        }
+        document.getElementById('nextLevelInfo').innerText = progressText;
+    }
+
+    function renderTasks() {
+        const list = document.getElementById('taskList');
+        list.innerHTML = '';
+        
+        const reversedTasks = [...tasks].reverse();
+
+        if (reversedTasks.length === 0) {
+            list.innerHTML = `<li style="text-align:center; padding: 20px; color: var(--text-light); font-style: italic;">No act recorded yet. Take the first step now!</li>`;
+            return;
+        }
+
+        reversedTasks.forEach(task => {
+            const li = document.createElement('li');
+            li.className = `task-item ${task.completed ? 'completed' : ''}`;
+            
+            li.innerHTML = `
+                <div class="task-info">
+                    <div class="task-name">${task.name}</div>
+                    <div class="task-meta">
+                        <span>${task.date}</span>
+                        <span class="task-points">+${task.points} Reward</span>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button class="btn-check" onclick="toggleTask(${task.id})" title="${task.completed ? 'Remove checkmark' : 'Complete'}">
+                        ${task.completed ? '✓' : '○'}
+                    </button>
+                    <button class="btn-delete" onclick="deleteTask(${task.id})" title="Delete">
+                        ✕
+                    </button>
+                </div>
+            `;
+            list.appendChild(li);
+        });
+    }
+
+    
+    renderTasks();
+    updateStats();
+</script>
+
+</body>
+</html>

@@ -1,84 +1,90 @@
-# بسم الله الرحمن الرحيم
+بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
+# In the Name of Allah, the Most Gracious, the Most Merciful
 
-# 🌸 Eslem Nur | İlim ve Kod
+# 🌸 Eslem Nur | Knowledge & Code
 
-> "Rabbim, ilmimizi arttır." — رَبِّ زِدْنَا عِلْمًا
+> "My Lord, increase me in knowledge." — رَبِّ زِدْنَا عِلْمًا
 
-İmam Hatip Lisesi mezunu ve İlahiyat Fakültesi birinci sınıf öğrencisi; dinî ilimleri modern web teknolojileriyle harmanlayan kişisel portfolyo ve dijital ürün platformu.
+Imam Hatip High School graduate and first-year Theology Faculty student; a personal portfolio and digital product platform that blends religious sciences with modern web technologies.
 
-🔗 **Canlı Site:** [Eslem Nur](https://eslemnur-notes.github.io/eslemnur_notes/)
-
----
-
-## ✨ Özellikler
-
-- 🌙 **Dark / Light Mode** — Tercih kalıcı olarak kaydedilir
-- 📱 **Responsive Tasarım** — Mobil, tablet ve masaüstü uyumlu
-- 📲 **PWA Desteği** — Cihazına uygulama olarak kurulabilir
-- 📑 **Sekmeli İçerik** — Projeler, sertifikalar ve shop kategorize edilmiştir
-- 🎨 **Estetik Arayüz** — Playfair Display & Scheherazade New fontlarıyla zarif görünüm
+🔗 **Live Site:** [Eslem Nur](https://eslemnur-notes.github.io/eslemnur_notes/)
 
 ---
 
-## 🛠️ Teknolojiler
+## ✨ Features
 
-| Kategori | Kullanılanlar |
+- 🌙 **Dark / Light Mode** — Preference saved persistently
+- 📱 **Responsive Design** — Compatible with mobile, tablet, and desktop
+- 📲 **PWA Support** — Installable as an app on your device
+- 📑 **Tabbed Content** — Projects, certificates, and shop are categorized
+- 🎨 **Aesthetic Interface** — Elegant look with Playfair Display & Scheherazade New fonts
+
+---
+
+## 🛠️ Technologies
+
+| Category | Used |
 | :--- | :--- |
 | **Frontend** | HTML5, CSS3, JavaScript (Vanilla) |
-| **Fontlar** | Google Fonts (Playfair Display, Scheherazade New, Lato) |
-| **İkonlar** | Font Awesome 6.4 |
+| **Fonts** | Google Fonts (Playfair Display, Scheherazade New, Lato) |
+| **Icons** | Font Awesome 6.4 |
 | **PWA** | Service Worker, Web Manifest |
-| **Tasarım** | Canva |
+| **Design** | Canva |
 | **Hosting** | GitHub Pages |
 
 ---
 
-## 📖 İçerik Bölümleri
+## 📖 Content Sections
 
-### Hakkımda
-Ben Eslem Nur. İlimi kalbimle, kodları ise zihnimle birleştirmeye çalışıyorum. İmam Hatip Lisesi eğitimim boyunca edindiğim ilmi birikimi, İlahiyat Fakültesi'nde Allah'ın izniyle derinleştirmeyi ve günümüz dijital dünyasında paylaşmanın yollarını arıyorum.
+### About Me
+I am Eslem Nur. I strive to combine knowledge with my heart, and code with my mind. Throughout my Imam Hatip High School education, I gained scholarly knowledge, and with Allah's permission, I aim to deepen it at the Theology Faculty and find ways to share it in today's digital world.
 
-Hem ilim talebesi (İlahiyat öğrencisi) hem de kendini geliştiren bir yazılımcı olarak, modern web teknolojileriyle anlamlı dijital eserler ortaya koymaya çalışıyorum.
+As both a seeker of knowledge (*ilim talebesi* / theology student) and a developing developer, I try to create meaningful digital works with modern web technologies.
 
-Amacım:إن شاء الله ilmi sadece kağıt üzerinde bırakmamak, onu dijital dünyada yaygınlaştırmak ve teknolojiyi hayır yolunda kullanmaktır.
+My goal: إن شاء الله to not leave knowledge only on paper, but to spread it in the digital world and use technology on the path of good.
 
-### Yetenekler & Sertifikalar
-| Sertifika | Kurum |
+### Skills & Certificates
+| Certificate | Institution |
 | :--- | :--- |
-| Python Programlama | freeCodeCamp |
-| C# Programlama | Microsoft iş birliği |
+| Python Programming | freeCodeCamp |
+| C# Programming | Microsoft Collaboration |
 | Responsive Web Design | freeCodeCamp |
 | English for Developers (B1) | freeCodeCamp |
-| Tasarım & UI/UX Temelleri | Canva Design School |
+| Design & UI/UX Fundamentals | Canva Design School |
 
-### Projeler
-- **Şablon & Notlar:** Gölgeli Kur'an, Tefsir/Tecvid/Arapça özetleri (FlipBook), Günlük Dualar, Planlayıcılar
-- **Web Uygulamaları:** Nur Kuran-ı Kerim, İlim & İbadet Takibi, Kelime Avı, Akıllı Planlayıcı, Zikir Sayacı, Hac & Umre Rehberi, Ayet-i Kelim, iKuran, Notion Planlayıcım (Şablon)
+### Projects
+- **Templates & Notes:** Shadowed Quran, Tafsir/Tajweed/Arabic summaries (FlipBook), Daily Prayers, Planners
+- **Web Applications:** Nur Quran-ı Kerim, Knowledge & Worship Tracker, Word Game, Smart Planner, Dhikr Counter, Hajj & Umrah Guide, Ayat-i Kelim, iKuran, My Notion Planner (Template)
 
 ### Shop
-- **Defterler & PDF:** GoodNotes şablonları, dijital defterler, Ramazan planlayıcı (Ko-fi üzerinden)
-- **Çizimler / Hat:** Kişiselleştirilmiş tuval sanat eserleri (Sadece Almanya içinde)
+- **Notebooks & PDFs:** GoodNotes templates, digital notebooks, Ramadan planner (via Ko-fi)
+- **Drawings / Calligraphy:** Personalized canvas art pieces (Germany only)
 
 
-## 📸 Önizleme ve İçerik Özeti
+## 📸 Preview & Content Summary
 
-![Site Önizleme](https://i.pinimg.com/736x/98/a5/ca/98a5ca07841720013645e7a35330fa02.jpg)
-![İçerik Özeti](https://i.pinimg.com/736x/5e/d1/a3/5ed1a331608a5a9c1974cab89ffeb8f5.jpg)
+![Site Preview](https://i.pinimg.com/736x/98/a5/ca/98a5ca07841720013645e7a35330fa02.jpg)
+![Content Summary](https://i.pinimg.com/736x/5e/d1/a3/5ed1a331608a5a9c1974cab89ffeb8f5.jpg)
 
-## 🔗 İletişim
+## 🔗 Contact
 
 | Platform | Link |
 | :--- | :--- |
 | 🌐 Linktree | [linktr.ee/eslemnur_notes](http://linktr.ee/eslemnur_notes) |
 | ☕ Ko-fi | [ko-fi.com/eslemnur_notes](https://ko-fi.com/eslemnur_notes) |
-| ✉️ E-posta | eslemnur_notes@proton.me |
+| ✉️ Email | eslemnur_notes@proton.me |
 
-## 📄 Lisans
+## 📄 License
 
-© 2026 Eslem Nur Çetin. Tüm hakları saklıdır.
+© 2026 Eslem Nur Çetin. All rights reserved.
 
-Bu projedeki içerikler (notlar, şablonlar, web uygulamaları) **sadaka-i cariye** niyetiyle paylaşılmıştır. Ücretsiz içerikler serbestçe kullanılabilinir; ticari ürünler için Ko-fi üzerinden satın alınmalıdır.
+The contents in this project (notes, templates, web applications) are shared with the intention of **sadaka-i jariyah** (ongoing charity). Free contents can be used freely; commercial products should be purchased via Ko-fi.
 
 ---
 
 Made with ❤️ by **Eslem Nur Çetin**
+----- END TRANSLATED CONTENT -----
+
+---
+
+I kept key Islamic terms untranslated (**بسم الله**, **رَبِّ زِدْنَا عِلْمًا**, **إن شاء الله**, **sadaka-i jariyah**) as they carry deep spiritual meaning. Let me know if you'd like any adjustments!

@@ -83,8 +83,3 @@ The contents in this project (notes, templates, web applications) are shared wit
 ---
 
 Made with ❤️ by **Eslem Nur Çetin**
------ END TRANSLATED CONTENT -----
-
----
-
-I kept key Islamic terms untranslated (**بسم الله**, **رَبِّ زِدْنَا عِلْمًا**, **إن شاء الله**, **sadaka-i jariyah**) as they carry deep spiritual meaning. Let me know if you'd like any adjustments!

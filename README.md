@@ -3,7 +3,7 @@
 
 # 🌸 Eslem Nur | Knowledge & Code
 
-> "My Lord, increase me in knowledge." — رَبِّ زِدْنَا عِلْمًا
+> "Oh Allah, increase us in knowledge." — رَبِّ زِدْنَا عِلْمًا
 
 Imam Hatip High School graduate and first-year Theology Faculty student; a personal portfolio and digital product platform that blends religious sciences with modern web technologies.
 

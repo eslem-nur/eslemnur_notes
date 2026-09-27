@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wortschatzspiel der Religiösen Literatur | Eslem Nur</title>
+
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="Eslem Nur Çetin - Theologiestudentin und Webentwicklerin Wortschatzspiel der Religiösen Literatur. Quran-Notizen und digitale Wissensprojekte.">
+    <meta name="keywords" content="Islamische Wissenschaft, Webentwicklung, Tafsir, Arabisch, Proton, Eslem Nur Çetin, Imam Hatip, Digitale Notizen, Anbetung">
+    <meta name="author" content="Eslem Nur Çetin">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph (Social Media Sharing) -->
+    <meta property="og:title" content="Eslem Nur | Religiöse Literatur Wortschatzspiel">
+    <meta property="og:description" content="Wissenschaftsschülerin und Entwicklerportfolio. Kostenlose wissenschaftliche Notizen und digitale Anwendungen.">
+    <meta property="og:image" content="https://i.pinimg.com/736x/d7/23/87/d72387170e4f46e17afa063a83fade13.jpg">
+    <meta property="og:url" content="https://eslemnur.github.io/eslemnur_notes/de/">
+    <meta property="og:type" content="Web App">
+    <meta property="og:locale" content="de_DE">
+    <!-- PWA Manifest Add -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/eslemnur_notes/PWA/png//apple-touch-icon4.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/eslemnur_notes/PWA/png/favicon4-96x96.png" />
+    <link rel="manifest" href="/eslemnur_notes/PWA/manifest/site4.webmanifest" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" type="image/svg+xml" href="/eslemnur_notes/PWA/svg/favicon4.svg" />
+    <link rel="shortcut icon" href="/eslemnur_notes/PWA/icon/favicon4.ico" />
+
+    <!-- PWA Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          // Remove leading dot (.sw.js), use only sw.js
+          navigator.serviceWorker.register('/eslemnur_notes/PWA/js-files/sw4.js', { scope: '/eslemnur_notes/' })
+            .then(reg => console.log('Service Worker erfolgreich registriert!', reg.scope))
+            .catch(err => console.log('Service Worker Registrierung fehlgeschlagen:', err));
+        });
+      }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- COLOR PALETTE (LIGHT MODE - DEFAULT) --- */
+        :root {
+            --primary-color: #B76E79;
+            --secondary-color: #FDF5E6;
+            --button-bg: #D4A5A5;
+            --button-hover: #C58F8F;
+            --accent-color: #9E7F7F;
+            --bg-color: #FFF9F9;
+            --card-bg: #FFFFFF;
+            --text-color: #4E342E;
+            --text-light: #8D6E63;
+            --border-color: #F0E6E6;
+            --note-bg: #FFF0F5;
+            --soft-shadow: 0 4px 15px rgba(183, 110, 121, 0.15);
+            --nav-bg: rgba(255, 249, 249, 0.95);
+            
+            /* Game Specific Colors */
+            --success-bg: #E8F5E9;
+            --success-text: #2E7D32;
+            --error-bg: #FFEBEE;
+            --error-text: #C62828;
+        }
+
+        /* --- DARK MODE VARIABLES --- */
+        [data-theme="dark"] {
+            --primary-color: #E08E98;
+            --secondary-color: #2D2D2D;
+            --button-bg: #A07070;
+            --button-hover: #805050;
+            --accent-color: #C0A0A0;
+            --bg-color: #1A1A1A;
+            --card-bg: #252525;
+            --text-color: #EAEAEA;
+            --text-light: #B0B0B0;
+            --border-color: #444444;
+            --note-bg: #333333;
+            --nav-bg: rgba(26, 26, 26, 0.95);
+            --soft-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            
+            /* Game Specific Colors - Dark Compatible */
+            --success-bg: #1B3320;
+            --success-text: #4CAF50;
+            --error-bg: #3E1B1B;
+            --error-text: #FF6B6B;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        /* --- HEADER & NAV (NEW) --- */
+        header {
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1002;
+        }
+
+        .logo span {
+            font-family: 'Scheherazade New', serif;
+            font-size: 1.2rem;
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 400;
+            color: var(--text-color);
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: transparent;
+            border: 2px solid var(--border-color);
+            color: var(--text-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+
+        .theme-toggle:hover {
+            background: var(--note-bg);
+            border-color: var(--primary-color);
+        }
+
+        /* Burger Menu Button */
+        .burger-btn {
+            display: none; /* Hidden on desktop */
+            flex-direction: column;
+            gap: 5px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .burger-btn span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .burger-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+        .burger-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .burger-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
+        }
+
+        /* GAME AREA STYLES */
+        .game-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, var(--bg-color) 0%, var(--note-bg) 100%);
+        }
+
+        .game-container {
+            width: 100%;
+            max-width: 650px;
+            background: var(--card-bg);
+            border-radius: 25px;
+            box-shadow: var(--soft-shadow);
+            overflow: hidden;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .game-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: 2px solid transparent;
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 10px 20px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .tab-btn:hover {
+            background: var(--note-bg);
+            color: var(--primary-color);
+        }
+
+        .tab-btn.active {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 10px rgba(183, 110, 121, 0.3);
+        }
+
+        .game-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .game-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .score-board {
+            background: var(--note-bg);
+            color: var(--accent-color);
+            padding: 12px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+            border: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .score-item span {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .card-content {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .question-text {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .term-highlight {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin: 10px 0 25px;
+            font-weight: 700;
+            min-height: 4rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+
+        /* OPTIONS GRID */
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        /* OPTION BUTTON STYLE */
+        .option-btn {
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            padding: 18px 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-color);
+            transition: all 0.3s;
+            min-height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-weight: 400;
+            white-space: normal;
+            line-height: 1.5;
+            word-wrap: break-word;
+            overflow: visible;
+        }
+
+        .option-btn:hover:not(:disabled) {
+            border-color: var(--primary-color);
+            background: var(--note-bg);
+            transform: translateY(-2px);
+        }
+
+        .option-btn:disabled {
+            cursor: default;
+            opacity: 0.7;
+        }
+
+        .option-btn.correct {
+            background: var(--success-bg);
+            border-color: var(--success-text);
+            color: var(--success-text);
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(46, 125, 50, 0.2);
+        }
+
+        .option-btn.wrong {
+            background: var(--error-bg);
+            border-color: var(--error-text);
+            color: var(--error-text);
+            opacity: 0.8;
+        }
+
+        .feedback-msg {
+            margin-top: 20px;
+            font-weight: 700;
+            min-height: 1.8em;
+            font-size: 1.1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .correct-text { color: var(--success-text); }
+        .wrong-text { color: var(--error-text); }
+
+        .definition-box {
+            background: var(--note-bg);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 20px;
+            border-left: 4px solid var(--primary-color);
+            display: none;
+            text-align: left;
+        }
+
+        .definition-box strong {
+            color: var(--primary-color);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+        }
+
+        .definition-text {
+            color: var(--text-color);
+            margin-top: 8px;
+            font-size: 1rem;
+        }
+
+        .origin-tag {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-style: italic;
+        }
+
+        .next-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 40px;
+            border-radius: 30px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(183, 110, 121, 0.3);
+            display: none;
+        }
+
+        .next-btn:hover {
+            background: var(--button-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(183, 110, 121, 0.4);
+        }
+
+        .progress-info {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 5px;
+            font-weight: 400;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            padding: 30px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+                /* --- MOBILE RESPONSIVENESS (768px and below) --- */
+        @media (max-width: 768px) {
+            /* Show burger button */
+            .burger-btn {
+                display: flex;
+                margin-left: 15px;
+            }
+
+            /* Hide menu links */
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 60px; /* Can be adjusted according to header height */
+                left: 0;
+                width: 100%;
+                background: var(--card-bg);
+                flex-direction: column;
+                padding: 20px 0;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                border-bottom: 2px solid var(--border-color);
+                z-index: 1000;
+                animation: slideDown 0.3s ease;
+            }
+
+            /* Make menu visible when active */
+            .nav-links.active {
+                display: flex;
+            }
+
+            /* Menu links style */
+            .nav-links a {
+                display: block;
+                text-align: center;
+                padding: 12px 0;
+                font-size: 1rem;
+                color: var(--text-color);
+                border-bottom: 1px solid var(--border-color);
+            }
+
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+
+            /* Remove underline animation */
+            .nav-links a::after {
+                display: none;
+            }
+
+            /* Animation */
+            @keyframes slideDown {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            /* Game container */
+            .game-container { padding: 15px; }
+            
+            /* Title size */
+            .term-highlight { font-size: 2rem; min-height: 3rem; }
+            
+            /* Options single column */
+            .options-grid {
+                grid-template-columns: 1fr !important;
+                gap: 12px;
+            }
+            
+            .option-btn {
+                width: 100% !important;
+                padding: 15px 12px !important;
+                font-size: 0.9rem !important;
+            }
+        }
+
+        /* Desktop fix (hide burger, show menu) */
+        @media (min-width: 769px) {
+            .burger-btn { display: none; }
+            .nav-links {
+                display: flex !important;
+                position: static;
+                background: transparent;
+                box-shadow: none;
+                padding: 0;
+                width: auto;
+                flex-direction: row;
+            }
+            .nav-links a { border: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">
+                    <span>بسم الله</span>
+                    Eslem Nur Çetin
+                </a>
+                
+                <!-- Theme Toggle Button (Added) -->
+                <button id="themeToggle" class="theme-toggle" aria-label="Thema wechseln">
+                    <i class="fas fa-moon"></i>
+                </button>
+
+                <!-- BURGER BUTTON -->
+                <button id="burger-btn" class="burger-btn" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <!-- NAVIGATION LINKS -->
+                <div class="nav-links" id="nav-links">
+                    <a href="https://eslemnur-notes.github.io/eslemnur_notes/de.html#about" onclick="closeMenu()">Über mich</a>
+                    <a href="https://eslemnur-notes.github.io/eslemnur_notes/de.html#skills" onclick="closeMenu()">Fähigkeiten</a>
+                    <a href="https://eslemnur-notes.github.io/eslemnur_notes/de.html#skills" onclick="closeMenu()">Zertifikate</a>
+                    <a href="https://eslemnur-notes.github.io/eslemnur_notes/de.html#projects" onclick="closeMenu()">Projekte</a>
+                    <a href="https://eslemnur-notes.github.io/eslemnur_notes/de.html#contact" onclick="closeMenu()">Kontakt</a>
+                   
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- GAME AREA -->
+    <div class="game-wrapper">
+        <div class="game-container">
+            <a href="index.html#projects" class="back-link">← Zurück zur Startseite</a>
+            
+            <div class="game-header" style="text-align: center; margin-bottom: 20px;">
+                <h2 style="font-family: 'Playfair Display', serif; color: var(--primary-color); margin-bottom: 5px;">Wortschatzspiel</h2>
+                <p style="color: var(--text-light); font-size: 0.9rem;">Lernen und festigen Sie Begriffe der religiösen Literatur.</p>
+            </div>
+
+            <div class="game-tabs">
+                <button class="tab-btn active" onclick="switchTab('word')">Wortschatzspiel</button>
+                <button class="tab-btn" onclick="switchTab('quiz')">Tägliche Informationen</button>
+                <button class="tab-btn" onclick="switchTab('exam')">Prüfungsvorbereitung</button>
+            </div>
+
+            <!-- SECTION 1: WORD HUNT -->
+            <div id="word-section" class="game-section active">
+                <div class="score-board">
+                    <div class="score-item">Punkte: <span id="word-score">0</span></div>
+                    <div class="score-item progress-info">
+                        Wiederholung: <span id="review-count" style="color: var(--error-text)">0</span> | Verbleibend: <span id="remaining-count">0</span>
+                    </div>
+                </div>
+
+                <div class="card-content">
+                    <p class="question-text">Welches der folgenden Wörter ist die Bedeutung dieses Begriffs?</p>
+                    <div class="term-highlight" id="word-term">Wird geladen...</div>
+                    
+                    <div class="options-grid" id="word-options">
+                        <!-- Options will come via JS -->
+                    </div>
+
+                    <div id="word-feedback" class="feedback-msg"></div>
+                    
+                    <div id="word-definition" class="definition-box">
+                        <strong>Erläuterung:</strong>
+                        <div class="definition-text" id="word-def-text"></div>
+                        <div class="origin-tag">Herkunft: <span id="word-origin"></span></div>
+                    </div>
+
+                    <button class="next-btn" id="next-word-btn" onclick="nextWord()">Nächstes Wort</button>
+                </div>
+            </div>
+
+            <!-- SECTION 2: DAILY KNOWLEDGE (QUIZ) -->
+            <div id="quiz-section" class="game-section">
+                <div class="score-board">
+                    <div class="score-item">Gesamtpunktzahl: <span id="quiz-score">0</span></div>
+                </div>
+                <div class="card-content">
+                    <h3 style="font-family: 'Playfair Display', serif; color: var(--primary-color); margin-bottom: 20px;">Tägliche Wissensfrage</h3>
+                    <p id="quiz-question" style="font-size: 1.2rem; font-weight: 600; margin: 20px 0; color: var(--text-color);"></p>
+                    <div class="options-grid" id="quiz-options"></div>
+                    <p id="quiz-feedback" class="feedback-msg"></p>
+                    <button class="next-btn" id="next-quiz-btn" onclick="nextQuiz()">Nächste Frage</button>
+                </div>
+            </div>
+
+            <!-- SECTION 3: EXAM PREPARATION -->
+            <div id="exam-section" class="game-section">
+                <div class="score-board">
+                    <div class="score-item">Prüfungspunkte: <span id="exam-score">0</span></div>
+                </div>
+                <div class="card-content">
+                    <h3 style="font-family: 'Playfair Display', serif; color: var(--primary-color); margin-bottom: 20px;">KPSS/Diyanet Übung</h3>
+                    <p id="exam-question" style="font-size: 1.1rem; margin: 20px 0; color: var(--text-color);"></p>
+                    <div class="options-grid" id="exam-options"></div>
+                    <p id="exam-feedback" class="feedback-msg"></p>
+                    <button class="next-btn" id="next-exam-btn" onclick="nextExam()">Weiter</button>
+                    <div style="text-align: center; margin-top: 15px;">
+                        <small style="color: var(--text-light);">📚 Quelle: Diyanet & Akademisches Curriculum</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p class="copyright">© <span id="current-year"></span> Eslem Nur Çetin. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- THEME MANAGEMENT (Dark/Light Mode) ---
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = themeToggleBtn.querySelector('i');
+
+        // Apply saved theme when page loads
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateThemeIcon(savedTheme);
+        }
+
+        // Update icon
+        function updateThemeIcon(theme) {
+            themeIcon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+        }
+
+        // Change theme on button click
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        // --- BURGER MENU FUNCTIONS ---
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            const burgerBtn = document.getElementById('burger-btn');
+            
+            navLinks.classList.toggle('active');
+            burgerBtn.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navLinks = document.getElementById('nav-links');
+            const burgerBtn = document.getElementById('burger-btn');
+            
+            navLinks.classList.remove('active');
+            burgerBtn.classList.remove('active');
+        }
+
+        // --- DATA POOLS ---
+        const vocabularyData = [
+            { term: "İhsan", definition: "Eine Sache auf die schönste Weise tun, Gutes tun. Bedeutet, als ob man Allah sieht anzubeten.", origin: "Arabisch" },
+            { term: "İstikrar", definition: "In einer Sache oder Glaubensrichtung kontinuierlich und beständig sein. In der Religion beharren.", origin: "Arabisch" },
+            { term: "Tevekkül", definition: "Nachdem alle Vorsichtsmaßnahmen getroffen wurden, sich darauf verlassen, dass das Ergebnis von Allah kommt.", origin: "Arabisch" },
+            { term: "Sabır", definition: "Stärke gegen Schmerz, Schwierigkeiten und unerwünschte Situationen zeigen, nicht übereilen.", origin: "Arabisch" },
+            { term: "Şükür", definition: "Den Besitzer (Allah) der erhaltenen Segnungen erkennen und Ihm danken.", origin: "Arabisch" },
+            { term: "Tevbe", definition: "Jemand bereut begangene Sünden und beschreibt, sie nicht wieder zu begehen.", origin: "Arabisch" },
+            { term: "Zekat", definition: "Muslime, die über einen bestimmten Besitz verfügen, geben einen bestimmten Teil ihres Vermögens an Arme.", origin: "Arabisch" },
+            { term: "Zikir", definition: "Allah mit Herz oder Zunge gedenken, erinnern.", origin: "Arabisch" },
+            { term: "Salavat", definition: "Das Gebet 'Allahümme salli...' rezitiert, um Allahs Barmherzigkeit über den Propheten zu bitten.", origin: "Arabisch" },
+            { term: "İstiaze", definition: "Bevor man den Quran liest, Zuflucht bei Allah vor Satan suchen.", origin: "Arabisch" },
+            { term: "Tefekkür", definition: "Die Feinheiten in Allahs Schöpfung, Wesen und Universum untersuchen und betrachten.", origin: "Arabisch" },
+            { term: "Hicret", definition: "Aus einem Ort, wo die Religion schwierig ist, dorthin wandern, wo die Religion frei ist.", origin: "Arabisch" },
+            { term: "Cihad", definition: "Sich bemühen, den Islam zu schützen und auszubreiten, gegen eigene Begierden kämpfen.", origin: "Arabisch" },
+            { term: "Vefa", definition: "Sein Versprechen halten, der Freundschaft und Loyalität treu bleiben.", origin: "Arabisch" },
+            { term: "Zühd", definition: "Keine emotionale Bindung zu weltlichen Gütern und Vergnügungen bilden, sie nicht verehren.", origin: "Arabisch" },
+            { term: "Riya", definition: "Gottesdienste so verrichten, dass andere außer Allah sie sehen, Prahlerei.", origin: "Arabisch" },
+            { term: "Kibir", definition: "Sich selbst gefallen, andere verächtlich ansehen.", origin: "Arabisch" },
+            { term: "Haset", definition: "Wünschen, dass der Segen, den jemand anderes besitzt, von ihm geht, Neid.", origin: "Arabisch" },
+            { term: "Gıybet", definition: "Über jemanden in dessen Abwesenheit Dinge sagen, die sie nicht hören möchten, wenn man es ihnen ins Gesicht sagt.", origin: "Arabisch" },
+            { term: "Namaz", definition: "Mit Bewusstsein der Knechtschaft gegenüber Allah zu bestimmten Zeiten verrichteter Gottesdienst.", origin: "Arabisch" }
+        ];
+
+        const quizData = [
+            { q: "Welche Sure wird als das 'Herz' des Quran bekannt?", options: ["Yasin", "Rehman", "Fatiha", "Bakara"], correct: 0 },
+            { q: "Wie nennt man die Hadith-Wissenschaft?", options: ["Tafsir", "Kelam", "Mustalahu'l-Hadis", "Fiqh"], correct: 2 },
+            { q: "Welche ist NICHT eine der fünf Säulen des Islam?", options: ["Zakat", "Pilgerfahrt nach Mekka", "Islamische Feiertage feiern", "Fasten"], correct: 2 },
+            { q: "Wer war die erste Frau, die Muslim wurde?", options: ["Unsere Mutter Aisha", "Unsere Mutter Khadijah", "Unsere Mutter Fatma", "Hz. Mariya"], correct: 1 },
+            { q: "In wie vielen Jahren wurde der Quran herabgesandt?", options: ["23 Jahre", "22 Jahre", "25 Jahre", "20 Jahre"], correct: 0 }
+        ];
+
+        const examData = [
+            { q: "Was bedeutet 'Mukaddime-i Hadis', das häufig in Diyanet-Prüfungen gefragt wird?", options: ["Die Überlieferungskette des Hadith", "Der Text des Hadith", "Der Überlieferer des Hadith", "Das Thema des Hadith"], correct: 0 },
+            { q: "Welches der Folgenden ist das Hauptthema der Sure 'Geschichte vom Volk der Höhle'?", options: ["Takfir", "Takwin", "Monotheismus-Glaube (Tawhid)", "Jihad"], correct: 2 },
+            { q: "Welcher Wissenschaftszweig untersucht, ob Hadithe authentisch sind?", options: ["Rivayet", "Dirayet", "Usul", "Geschichte"], correct: 1 },
+            { q: "Was bedeutet 'Ijma' im islamischen Recht?", options: ["Eine Einigung in einer Angelegenheit erreichen", "Auslegung eines Verses", "Worte des Propheten", "Analogy machen (Qiyas)"], correct: 0 }
+        ];
+
+        // --- GLOBAL VARIABLES ---
+        let wordScore = 0;
+        let quizScore = 0;
+        let examScore = 0;
+        
+        // Specialized Pools for Word Game (Smart Repetition)
+        let mainPool = [];
+        let reviewQueue = [];
+        let currentWordItem = null;
+
+        // Start
+        window.onload = () => {
+            initTheme(); // Initialize theme
+            mainPool = [...vocabularyData];
+            nextWord();
+            nextQuiz();
+            nextExam();
+        };
+
+        // Tab Switching
+        function switchTab(tabName) {
+            document.querySelectorAll('.game-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName + '-section').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // --- WORD HUNT (SMART REPETITION) ---
+        function nextWord() {
+            document.getElementById('word-definition').style.display = 'none';
+            document.getElementById('word-feedback').innerHTML = '';
+            document.getElementById('next-word-btn').style.display = 'none';
+            const optionsContainer = document.getElementById('word-options');
+            optionsContainer.innerHTML = '';
+
+            let targetWord = null;
+
+            if (reviewQueue.length > 0) {
+                const randomIndex = Math.floor(Math.random() * reviewQueue.length);
+                targetWord = reviewQueue[randomIndex];
+                reviewQueue.splice(randomIndex, 1);
+                document.getElementById('review-count').innerText = reviewQueue.length;
+            } else if (mainPool.length > 0) {
+                const randomIndex = Math.floor(Math.random() * mainPool.length);
+                targetWord = mainPool[randomIndex];
+                mainPool.splice(randomIndex, 1);
+                document.getElementById('remaining-count').innerText = mainPool.length;
+            } else {
+                document.getElementById('word-term').innerText = "Glückwunsch!";
+                document.getElementById('word-feedback').innerHTML = '<span class="correct-text">🎉 Spiel Vorbei! Sie alle Wörter richtig identifiziert haben.</span>';
+                document.getElementById('next-word-btn').innerText = "Von vorne beginnen";
+                document.getElementById('next-word-btn').style.display = 'inline-block';
+                document.getElementById('next-word-btn').onclick = resetGame;
+                return;
+            }
+
+            currentWordItem = targetWord;
+            document.getElementById('word-term').innerText = currentWordItem.term;
+
+            let options = [currentWordItem];
+            const allWords = vocabularyData;
+            
+            while (options.length < 4) {
+                const randomDistractor = allWords[Math.floor(Math.random() * allWords.length)];
+                if (randomDistractor.term !== currentWordItem.term && !options.includes(randomDistractor)) {
+                    options.push(randomDistractor);
+                }
+            }
+
+            options.sort(() => Math.random() - 0.5);
+
+            options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = opt.definition; 
+                btn.onclick = () => checkWordAnswer(opt, btn);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function checkWordAnswer(selectedOpt, btnElement) {
+            const allBtns = document.querySelectorAll('#word-options .option-btn');
+            allBtns.forEach(btn => btn.disabled = true);
+
+            if (selectedOpt.term === currentWordItem.term) {
+                btnElement.classList.add('correct');
+                document.getElementById('word-feedback').innerHTML = '<span class="correct-text">✅ Großartig! Richtige Antwort.</span>';
+                wordScore += 10;
+                document.getElementById('word-score').innerText = wordScore;
+
+                document.getElementById('word-def-text').innerText = currentWordItem.definition;
+                document.getElementById('word-origin').innerText = currentWordItem.origin;
+                document.getElementById('word-definition').style.display = 'block';
+            } else {
+                btnElement.classList.add('wrong');
+                document.getElementById('word-feedback').innerHTML = '<span class="wrong-text">❌ Falsch!</span> Richtige Antwort: ' + currentWordItem.term;
+                
+                allBtns.forEach(btn => {
+                    if (btn.innerText === currentWordItem.definition) {
+                        btn.classList.add('correct');
+                    }
+                });
+
+                const exists = reviewQueue.some(w => w.term === currentWordItem.term);
+                if (!exists) {
+                    reviewQueue.push(currentWordItem);
+                    document.getElementById('review-count').innerText = reviewQueue.length;
+                }
+            }
+            document.getElementById('next-word-btn').style.display = 'inline-block';
+        }
+
+        function resetGame() {
+            mainPool = [...vocabularyData];
+            reviewQueue = [];
+            wordScore = 0;
+            document.getElementById('word-score').innerText = "0";
+            document.getElementById('review-count').innerText = "0";
+            document.getElementById('remaining-count').innerText = mainPool.length;
+            document.getElementById('next-word-btn').innerText = "Nächstes Wort";
+            document.getElementById('next-word-btn').onclick = nextWord;
+            nextWord();
+        }
+
+        // --- DAILY KNOWLEDGE (QUIZ) ---
+        function nextQuiz() {
+            document.getElementById('quiz-feedback').innerHTML = '';
+            document.getElementById('next-quiz-btn').style.display = 'none';
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+
+            const randomIndex = Math.floor(Math.random() * quizData.length);
+            const currentQuizItem = quizData[randomIndex];
+
+            document.getElementById('quiz-question').innerText = currentQuizItem.q;
+
+            currentQuizItem.options.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = opt;
+                btn.onclick = () => checkQuizAnswer(index, currentQuizItem.correct, btn, currentQuizItem);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function checkQuizAnswer(selectedIndex, correctIndex, btnElement, currentItem) {
+            const allBtns = document.querySelectorAll('#quiz-options .option-btn');
+            allBtns.forEach(btn => btn.disabled = true);
+
+            if (selectedIndex === correctIndex) {
+                btnElement.classList.add('correct');
+                document.getElementById('quiz-feedback').innerHTML = '<span class="correct-text">✅ Richtig!</span>';
+                quizScore += 20;
+            } else {
+                btnElement.classList.add('wrong');
+                allBtns[correctIndex].classList.add('correct');
+                document.getElementById('quiz-feedback').innerHTML = '<span class="wrong-text">❌ Falsch.</span> Richtige Antwort: ' + currentItem.options[correctIndex];
+            }
+            document.getElementById('quiz-score').innerText = quizScore;
+            document.getElementById('next-quiz-btn').style.display = 'inline-block';
+        }
+
+        // --- EXAM PREPARATION ---
+        function nextExam() {
+            document.getElementById('exam-feedback').innerHTML = '';
+            document.getElementById('next-exam-btn').style.display = 'none';
+            const optionsContainer = document.getElementById('exam-options');
+            optionsContainer.innerHTML = '';
+
+            const randomIndex = Math.floor(Math.random() * examData.length);
+            const currentExamItem = examData[randomIndex];
+
+            document.getElementById('exam-question').innerText = currentExamItem.q;
+
+            currentExamItem.options.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerText = opt;
+                btn.onclick = () => checkExamAnswer(index, currentExamItem.correct, btn, currentExamItem);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function checkExamAnswer(selectedIndex, correctIndex, btnElement, currentItem) {
+            const allBtns = document.querySelectorAll('#exam-options .option-btn');
+            allBtns.forEach(btn => btn.disabled = true);
+
+            if (selectedIndex === correctIndex) {
+                btnElement.classList.add('correct');
+                document.getElementById('exam-feedback').innerHTML = '<span class="correct-text">✅ Erfolgreich!</span>';
+                examScore += 30;
+            } else {
+                btnElement.classList.add('wrong');
+                allBtns[correctIndex].classList.add('correct');
+                document.getElementById('exam-feedback').innerHTML = '<span class="wrong-text">❌ Fehler.</span> Richtige Antwort: ' + currentItem.options[correctIndex];
+            }
+            document.getElementById('exam-score').innerText = examScore;
+            document.getElementById('next-exam-btn').style.display = 'inline-block';
+        }
+        // --- AUTO YEAR UPDATE ---
+        document.addEventListener("DOMContentLoaded", function() {
+            const yearSpan = document.getElementById("current-year");
+            if (yearSpan) {
+                const currentYear = new Date().getFullYear();
+                yearSpan.textContent = currentYear;
+        }
+});
+    </script>
+</body>
+</html>

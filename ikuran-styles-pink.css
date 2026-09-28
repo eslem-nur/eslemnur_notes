@@ -1,0 +1,490 @@
+
+      :root {--bg-color: #FFF9F9;
+             --container-prim: #dd8399;
+             --container-sec: #FFebf0;
+             --bg-screen: #fff;
+             --box-shadow: 0 20px 40px rgba(160, 100, 120, 0.2);
+             --shadow-light: rgba(255, 255, 255, 0.6);   
+             --shadow-dark: rgba(180, 100, 120, 0.25);   
+             --shadow-deep: rgba(140, 60, 80, 0.35); 
+             --border: #999;
+      }
+      
+      [data-theme="dark"] {--bg-color: #1e1e1e;
+             --container-prim: #dd8399;
+             --container-sec: #FFebf0;
+             --bg-screen: #fff;
+             --shadow-light: rgba(255, 255, 255, 0.5);
+             --shadow-dark: rgba(100, 40, 60, 0.4);      
+             --shadow-deep: rgba(80, 20, 40, 0.5);       
+             --box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+             --border: #555;}
+      
+      [data-theme="dark"] body {
+      background-image: none;
+    }
+
+      
+        /* --- GENEL AYARLAR --- */
+      body {
+        background-color: var(--bg-color);
+        background-image: radial-gradient(circle at 30% 30%, var(--bg-color) 0%, #FFebf0 100%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        margin: 0;
+        user-select: none;
+      }
+      
+
+
+      /* --- MOBİL VARSAYILAN (300x500) --- */
+      .ipod-container {
+        width: 300px;
+        height: 500px;
+        background: linear-gradient(135deg, var(--container-sec) 0%, var(--container-prim) 100%);
+        border-radius: 45px;
+        border: none;
+        
+        box-shadow: 
+        15px 15px 40px var(--shadow-dark),      
+        -5px -5px 20px var(--shadow-light),     
+        inset 2px 2px 8px var(--shadow-light),  
+        inset -2px -2px 8px var(--shadow-deep), 
+        inset 0 0 20px rgba(0, 0, 0, 0.1);  
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 22px;
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .ipod-container::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        border-radius: 45px;
+        box-shadow: 
+        15px 15px 40px var(--shadow-dark),      
+        -5px -5px 20px var(--shadow-light),     
+        inset 2px 2px 8px var(--shadow-light),  
+        inset -2px -2px 8px var(--shadow-deep), 
+        inset 0 0 20px rgba(0, 0, 0, 0.1);  
+
+        pointer-events: none;
+        z-index: 1;
+      }
+      .screen {
+        width: 240px;
+        height: 200px;
+        background-color: var(--bg-screen);
+        border: 1px solid #b1b1b1;
+        border-radius: 12px;
+        margin-bottom: 35px;
+        overflow: hidden;
+        position: relative;
+        z-index: 2;
+        box-shadow: 
+          inset 3px 3px 8px rgba(0,0,0,0.3), 
+          0 2px 5px rgba(0,0,0,0.1); 
+      }
+
+
+      .click-wheel {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: linear-gradient(145deg, #f0f0f0, #e6e6e6);
+        border: 1px solid #d1d1d1;
+        position: relative;
+        z-index: 2;
+        box-shadow: 
+        8px 8px 20px var(--shadow-dark),
+        -4px -4px 10px var(--shadow-light),
+        inset 2px 2px 5px var(--shadow-light),
+        inset -2px -2px 5px var(--shadow-deep),
+        inset 0 0 10px rgba(0, 0, 0, 0.1);
+        touch-action: none;
+      }
+        
+
+      .wheel-center {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, var(--container-sec) 0%, var(--container-prim) 100%);
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid #ccc;
+        box-shadow: 
+        3px 3px 8px var(--shadow-dark),
+        -2px -2px 5px var(--shadow-light),
+        inset 1px 1px 2px var(--shadow-light);
+        cursor: pointer;
+        z-index: 3;
+      }
+
+      
+      .wheel-center:active {
+        transform: translate(-50%, -50%) scale(0.98);
+        box-shadow: 
+        inset 3px 3px 8px var(--shadow-deep),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.2),
+        inset 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+      
+      .wheel-label {
+        position: absolute;
+        color: #999;
+        font-size: 16px; 
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .lbl-menu:hover, .lbl-prev:hover, .lbl-next:hover, .lbl-play:hover {
+        color: var(--container-prim);
+        
+      }
+      .lbl-menu { top: 20px; left: 50%; transform: translateX(-50%); }
+      .lbl-prev { left: 20px; top: 50%; transform: translateY(-50%); }
+      .lbl-next { right: 20px; top: 50%; transform: translateY(-50%); }
+      .lbl-play { bottom: 20px; left: 50%; transform: translateX(-50%); }
+
+      /* Liste ve Player Stilleri (Ortak) */
+      .screen-header {
+  background: #c0c0c0;
+  color: #333333;
+  padding: 3px 6px;
+  font-size: 11px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 20px;
+  border-bottom: 1px solid #999;
+  font-family: "Chicago", "Geneva", sans-serif;
+  letter-spacing: -0.5px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+}
+      
+      
+      .battery-status-container {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+      
+      .rotated-battery {
+  font-size: 11px;
+  line-height: 1;
+  transform: rotate(90deg);
+  transform-origin: center;
+  display: inline-block;
+  filter: grayscale(50%);
+}
+
+.battery-text {
+  font-family: "Chicago", "Geneva", sans-serif;
+  font-weight: bold;
+  font-size: 11px;
+  white-space: nowrap;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+}
+
+      .surah-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        height: 160px;
+        overflow-y: auto;
+        font-size: 13px;
+      }
+
+      .surah-item {
+        padding: 5px 8px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+      }
+
+      .surah-item.active {
+        background-color: var(--container-prim);
+        color: white;
+      }
+
+      .player-view {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        text-align: center;
+        background: #fff;
+      }
+
+      /* Player ekranındaki önceki/sonraki butonlarını gizle */
+#btn-prev-track,
+#btn-next-track {
+  display: none !important;
+}
+      
+      .now-playing-title {
+        font-weight: bold;
+        font-size: 14px;
+        margin-bottom: 5px;
+        padding: 0 10px;
+      }
+
+      .now-playing-reciter {
+        font-size: 11px;
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      .progress-container {
+        width: 70%;
+        height: 5px;
+        background: #eee;
+        border-radius: 3px;
+        margin: 10px 0;
+        position: relative;
+        cursor: pointer;
+      }
+
+      .progress-bar {
+        width: 0%;
+        height: 100%;
+        background: var(--container-prim);
+        border-radius: 3px;
+        transition: width 0.2s;
+      }
+
+      
+      /* --- DURUM MESAJLARI --- */
+      .status-msg {
+        position: absolute;
+        font-size: 12px;
+        color: #888;
+        white-space: nowrap;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 10;
+        background: rgba(255,255,255,0.9);
+        padding: 4px 8px;
+        border-radius: 4px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      }
+
+      /* Farklı Mesaj Konumları */
+      .msg-loading {
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .msg-player {
+        top: 53.5%;
+        right: 25px;
+        left: auto;
+        transform: translateY(-50%);
+      }
+
+      .msg-skip {
+        top: 20%;
+        right: 20px;
+        left: auto;
+        transform: translateY(-50%);
+        font-weight: bold;
+        color: var(--container-prim);
+      }
+
+      .msg-volume {
+        top: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-weight: bold;
+        color: var(--container-prim);
+      }
+
+      .msg-repeat {
+        top: 30%;
+        right: 20px;
+        left: auto;
+        transform: translateY(-50%);
+        color: var(--container-prim);
+        font-weight: bold;
+      }
+
+      .msg-shuffle {
+        top: 30%;
+        right: 20px;
+        left: auto;
+        transform: translateY(-50%);
+        color: var(--container-prim);
+        font-weight: bold;
+      }
+
+      .msg-speed {
+        top: 60%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-weight: bold;
+        color: var(--container-prim);
+      }
+
+      .msg-info {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-weight: bold;
+        
+      }
+      
+      [data-theme="dark"] .status-msg {
+        color: #ccc;
+        background: rgba(30,30,30,0.9);
+        border: 1px solid #555;
+      }
+      
+      /* --- AYARLAR BUTONLARI --- */
+      .settings-btn {
+        background: #dd8399;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        padding: 5px;
+        font-size: 12px;
+        color: #fff;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: inherit;
+      }
+      
+      .settings-btn:hover {
+        background: #B76E79;
+        border-color: #ccc;
+      }
+
+      [data-theme="dark"] .settings-btn {
+        background: #dd8399;
+        color: #fff;
+        border-color: #ccc;
+      }
+
+      [data-theme="dark"] .settings-btn:hover {
+        background: #B76E79;
+      }
+      
+      #btn-theme i {
+  margin-right: 6px;
+}
+     /* --- AYARLAR GÖRÜNÜMÜ (Scrollable) --- */
+#settings-view {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Başlangıçtan başla */
+  height: 100%;
+  text-align: center;
+  background: #fff;
+  overflow-y: auto; /* Kaydırma çubuğu ekle */
+  padding: 20px 10px;
+  box-sizing: border-box;
+}
+
+
+#settings-view::-webkit-scrollbar {
+  width: 6px;
+}
+
+#settings-view::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+#settings-view::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+
+
+
+
+      /* --- MASAÜSTÜ AYARLARI --- */ 
+      @media (min-width: 769px) {
+        .ipod-container {
+          width: 400px;
+          height: 600px;
+          border-radius: 40px;
+          padding: 20px;
+          box-shadow: 
+        15px 15px 30px rgba(0,0,0,0.2),
+        -5px -5px 20px rgba(255,255,255,0.7),
+        inset 2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .screen {
+          width: 340px;
+          height: 300px;
+          margin-bottom: 50px;
+        }
+
+        .click-wheel {
+          width: 300px;
+          height: 400px; 
+          border-radius: 50%; 
+        }
+
+        .wheel-center {
+          width: 120px;
+          height: 120px;
+        }
+
+        .wheel-label {
+          font-size: 20px; 
+        }
+        .lbl-menu { top: 35px; }
+        .lbl-prev { left: 35px; }
+        .lbl-next { right: 35px; }
+        .lbl-play { bottom: 35px; }
+
+        .surah-list {
+          height: 260px;
+          font-size: 14px;
+        }
+
+        .surah-item {
+          padding: 6px 10px;
+        }
+
+        .now-playing-title {
+          font-size: 25px;
+        }
+
+        .now-playing-reciter {
+          font-size: 12px;
+        }
+
+        .progress-container {
+          width: 80%;
+          height: 6px;
+        }
+        
+        
+        .status-msg {
+          font-size: 12px;
+        }
+        
+        /* --- AYARLAR BUTONLARI --- */
+      .settings-btn {
+        border-radius: 20px;
+        padding: 10px;
+        font-size: 14px; }
+      } 
+    

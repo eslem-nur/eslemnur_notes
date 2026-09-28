@@ -1,3 +1,5 @@
+[English](./CONTRIBUTING.md) | [Türkçe](./CONTRIBUTING.tr.md)
+
 # Contributing Guide
 
 Hello! Thank you for your interest in my project. 🙏

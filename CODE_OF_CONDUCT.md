@@ -1,3 +1,5 @@
+[English](#-english) | [Türkçe](#-türkçe)
+
 # Davranış Kuralları | Code of Conduct
 
 ## 🇹🇷 Türkçe

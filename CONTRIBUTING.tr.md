@@ -1,3 +1,5 @@
+[English](./CONTRIBUTING.md) | [Türkçe](./CONTRIBUTING.tr.md)
+
 # Katkı Sağlama Rehberi
 
 Merhaba! Projeme gösterdiğiniz ilgi için teşekkür ederim. 🙏

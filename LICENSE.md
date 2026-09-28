@@ -1,3 +1,5 @@
+[English](./LICENSE.md) | [Türkçe](./LICENSE.tr.md)
+
 # License Information
 
 © 2026 Eslem Nur Çetin. All rights reserved.

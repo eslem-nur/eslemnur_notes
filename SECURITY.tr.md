@@ -1,3 +1,5 @@
+[English](./SECURITY.md) | [Türkçe](./SECURITY.tr.md)
+
 # Güvenlik Politikası
 
 ## Sorumlulukla Bildirim

@@ -1,6 +1,6 @@
 /* ============================================
    ESLEM NUR | İLİM VE KOD - GLOBAL JAVASCRIPT
-   Tüm Diller İçin Ortak JS
+   Tüm Diller İçin Ortak JS (DÜZELTİLDİ)
    ============================================ */
 
 // --- DİL MESAJLARI (STAR RATING) ---
@@ -50,7 +50,6 @@ const ratingMessages = {
 // --- MEVCUT DİLİ TESPİT ET ---
 function getCurrentLanguage() {
     const htmlLang = document.documentElement.getAttribute('lang');
-    const path = window.location.pathname.toLowerCase();
     
     if (htmlLang === 'tr') return 'tr';
     if (htmlLang === 'en') return 'en';
@@ -58,8 +57,8 @@ function getCurrentLanguage() {
     if (htmlLang === 'fr') return 'fr';
     if (htmlLang === 'ar') return 'ar';
     
-    // URL'den tahmin et
-    if (path.includes('index.html') || path === '/' || path.endsWith('/')) return 'tr';
+    // URL'den tahmin et (fallback)
+    const path = window.location.pathname.toLowerCase();
     if (path.includes('/en.html') || path.endsWith('en.html')) return 'en';
     if (path.includes('/de.html') || path.endsWith('de.html')) return 'de';
     if (path.includes('/fr.html') || path.endsWith('fr.html')) return 'fr';
@@ -69,7 +68,11 @@ function getCurrentLanguage() {
 }
 
 // --- STAR RATING BAŞLAT ---
+let ratingInitialized = false;
+
 function initStarRating() {
+    if (ratingInitialized) return; // Duplicate önleme
+    
     const stars = document.querySelectorAll('.star');
     const ratingValue = document.getElementById('ratingValue');
     const ratingText = document.getElementById('ratingText');
@@ -81,7 +84,7 @@ function initStarRating() {
     
     // Mesajları güncelle
     function updateRatingText(value) {
-        ratingText.textContent = messages[value];
+        ratingText.textContent = messages[value] || messages[0];
     }
     
     // Yıldızları vurgula
@@ -104,31 +107,12 @@ function initStarRating() {
         saveRating(value);
     }
     
-    // Event listeners
-    stars.forEach(star => {
-        star.addEventListener('click', () => {
-            const value = parseInt(star.getAttribute('data-value'));
-            activateStars(value);
-        });
-        
-        star.addEventListener('mouseenter', () => {
-            const tempValue = parseInt(star.getAttribute('data-value'));
-            highlightStars(tempValue);
-        });
-    });
-    
-    // Mouse çıkınca seçili haline dön
-    document.getElementById('starRating').addEventListener('mouseleave', () => {
-        const selected = parseInt(ratingValue.value);
-        highlightStars(selected);
-    });
-    
     // LocalStorage'a kaydet
     function saveRating(value) {
         try {
             localStorage.setItem('userRating_' + lang, value);
         } catch(e) {
-            console.log('LocalStorage kullanılamıyor');
+            console.warn('LocalStorage kullanılamıyor:', e);
         }
     }
     
@@ -138,21 +122,57 @@ function initStarRating() {
             const saved = localStorage.getItem('userRating_' + lang);
             if (saved) {
                 const value = parseInt(saved);
-                activateStars(value);
+                if (!isNaN(value)) {
+                    activateStars(value);
+                }
             }
         } catch(e) {
-            console.log('LocalStorage okunamıyor');
+            console.warn('LocalStorage okunamıyor:', e);
         }
     }
     
+    // Event listener'ları ekle
+    stars.forEach(star => {
+        star.addEventListener('click', function() {
+            const value = parseInt(this.getAttribute('data-value'));
+            if (!isNaN(value)) {
+                activateStars(value);
+            }
+        });
+        
+        star.addEventListener('mouseenter', function() {
+            const tempValue = parseInt(this.getAttribute('data-value'));
+            if (!isNaN(tempValue)) {
+                highlightStars(tempValue);
+            }
+        });
+    });
+    
+    // Mouse çıkınca seçili haline dön
+    const starRatingContainer = document.getElementById('starRating');
+    if (starRatingContainer) {
+        starRatingContainer.addEventListener('mouseleave', function() {
+            const selected = parseInt(ratingValue.value);
+            if (!isNaN(selected)) {
+                highlightStars(selected);
+            }
+        });
+    }
+    
     loadRating();
+    ratingInitialized = true;
 }
 
 // --- TEMA YÖNETİMİ ---
+let themeInitialized = false;
+
 function initTheme() {
+    if (themeInitialized) return;
+    
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
     updateThemeIcon(savedTheme);
+    themeInitialized = true;
 }
 
 function updateThemeIcon(theme) {
@@ -168,29 +188,20 @@ function updateThemeIcon(theme) {
         ar: { light: 'التحول للوضع الداكن', dark: 'التحول للوضع الفاتح' }
     };
     
-    if (theme === 'light') {
-        icon.className = 'fas fa-moon';
-        btn.setAttribute('aria-label', labels[lang]?.light || labels.tr.light);
-    } else {
-        icon.className = 'fas fa-sun';
-        btn.setAttribute('aria-label', labels[lang]?.dark || labels.tr.dark);
+    if (icon && btn) {
+        if (theme === 'light') {
+            icon.className = 'fas fa-moon';
+            btn.setAttribute('aria-label', labels[lang]?.light || labels.tr.light);
+        } else {
+            icon.className = 'fas fa-sun';
+            btn.setAttribute('aria-label', labels[lang]?.dark || labels.tr.dark);
+        }
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const themeToggle = document.getElementById('themeToggle');
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-    }
-});
-
 // --- MOBİL MENÜ ---
+let menuInitialized = false;
+
 function toggleMenu() {
     const navLinks = document.querySelector('.nav-links');
     if (navLinks) {
@@ -198,8 +209,9 @@ function toggleMenu() {
     }
 }
 
-// Mobil menüye tıklanınca kapat
-document.addEventListener('DOMContentLoaded', () => {
+function initMobileMenu() {
+    if (menuInitialized) return;
+    
     const navLinks = document.querySelector('.nav-links');
     if (navLinks) {
         navLinks.querySelectorAll('a').forEach(link => {
@@ -208,7 +220,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-});
+    menuInitialized = true;
+}
 
 // --- E-POSTA KOPYALAMA ---
 function copyEmail() {
@@ -220,12 +233,12 @@ function copyEmail() {
             setTimeout(() => { feedback.style.opacity = "0"; }, 2000);
         }
     }).catch(err => { 
-        console.error("Kopyalama başarısız: ", err); 
+        console.error("Kopyalama başarısız:", err); 
         alert("E-posta adresi: " + email); 
     });
 }
 
-// --- SEKMELER ---
+// --- SEKMELER (Global scope'ta kalıyor - HTML'den çağrılıyor) ---
 function switchSkillTab(tabName) {
     const buttons = document.querySelectorAll('#skills .skill-tab-btn');
     const groups = document.querySelectorAll('#skills .skill-group');
@@ -235,11 +248,6 @@ function switchSkillTab(tabName) {
         btn.setAttribute('aria-selected', 'false');
     });
     groups.forEach(group => group.style.display = 'none');
-
-    if (event && event.target && event.target.classList.contains('skill-tab-btn')) {
-        event.target.classList.add('active');
-        event.target.setAttribute('aria-selected', 'true');
-    }
 
     const targetGroup = document.getElementById('group-' + tabName);
     if (targetGroup) {
@@ -256,11 +264,6 @@ function switchProjectTab(tabName) {
         btn.setAttribute('aria-selected', 'false');
     });
     groups.forEach(group => group.style.display = 'none');
-
-    if (event && event.target && event.target.classList.contains('project-tab-btn')) {
-        event.target.classList.add('active');
-        event.target.setAttribute('aria-selected', 'true');
-    }
 
     const targetGroup = document.getElementById('group-' + tabName);
     if (targetGroup) {
@@ -279,11 +282,6 @@ function switchShopTab(tabName) {
     });
     groups.forEach(group => group.style.display = 'none');
 
-    if (event && event.target && event.target.classList.contains('shop-tab-btn')) {
-        event.target.classList.add('active');
-        event.target.setAttribute('aria-selected', 'true');
-    }
-
     const targetGroup = document.getElementById('group-' + tabName);
     if (targetGroup) {
         targetGroup.style.display = 'grid';
@@ -291,7 +289,7 @@ function switchShopTab(tabName) {
     }
 }
 
-// --- DİL MENÜSÜ TOGGLE ---
+// --- DİL MENÜSÜ TOGGLE (Global) ---
 function toggleLangMenu() {
     const langDropdown = document.getElementById('langDropdown');
     if (langDropdown) {
@@ -313,8 +311,22 @@ function updateYear() {
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 }
 
+// --- TEMA TOGGLE EVENT LISTENER ---
+function initThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+    }
+}
+
 // --- SAYFA YÜKLENDİĞİNDE ---
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     // Sekmelerin varsayılan durumunu geri yükle
     const savedProjectTab = localStorage.getItem('lastProjectTab');
     const projectBtns = document.querySelectorAll('#projects .project-tab-btn');
@@ -346,7 +358,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Skill tabs (varsayılan yetenekler)
+    // Skill tabs
     const skillBtns = document.querySelectorAll('#skills .skill-tab-btn');
     const skillGroups = document.querySelectorAll('#skills .skill-group');
     const defaultTabs = {
@@ -407,8 +419,10 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Başlat
+    // Initialize everything
     initTheme();
+    initThemeToggle();
+    initMobileMenu();
     initStarRating();
     updateYear();
 });

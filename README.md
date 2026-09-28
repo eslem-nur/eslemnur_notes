@@ -3,6 +3,8 @@
 
 # 🌸 Eslem Nur | Knowledge & Code
 
+[English](./README.md) | [Türkçe](./README.tr.md)
+
 > "Oh Allah, increase us in knowledge." — رَبِّ زِدْنَا عِلْمًا
 
 Imam Hatip High School graduate and first-year Theology Faculty student; a personal portfolio and digital product platform that blends religious sciences with modern web technologies.
@@ -77,6 +79,11 @@ My goal: إن شاء الله to not leave knowledge only on paper, but to sprea
 ## 📄 License
 
 © 2026 Eslem Nur Çetin. All rights reserved.
+
+This project is licensed under [CC BY-NC-SA 4.0](./LICENSE).
+
+🇬🇧 [License Details (English)](./LICENSE.md)
+🇹🇷 [Lisans Detayları (Türkçe)](./LICENSE.tr.md)
 
 The contents in this project (notes, templates, web applications) are shared with the intention of **sadaka-i jariyah** (ongoing charity). Free contents can be used freely; commercial products should be purchased via Ko-fi.
 

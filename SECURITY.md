@@ -1,18 +1,31 @@
-# Güvenlik Politikası
+# Security Policy
 
-## Sorumlulukla Bildirim
+## Reporting Responsibly
 
-Güvenlik açıklarını bildirmek için lütfen:
-1. **GitHub Security Advisory** formunu kullanın
-2. Veya doğrudan bana e-posta atın: eslemnur_notes@proton.me
+To report security vulnerabilities, please:
+1. **Use the GitHub Security Advisory** form, or
+2. **Email me directly:** eslemnur_notes@proton.me
 
-## Kapsam
-Bu politika şu bileşenleri kapsar:
-- Diyanet API entegrasyonu
+## Scope
+This policy covers:
+- Diyanet API integration
 - Service Worker (PWA)
-- Kullanıcı verisi işleme (local storage)
+- User data processing (local storage)
 
-## Bildirim Sonrası
-- Sorunu aldığınızı 48 saat içinde onaylarım
-- Düzeltme için makul süre tanırım
-- Fix yayınladığınızda sizi credits'de isimlendirebilirim
+## After Reporting
+- I will confirm receipt within 48 hours
+- I will allow reasonable time for fix development
+- You may be credited in release notes when the fix is published
+
+## Out of Scope
+- Third-party APIs (Diyanet, etc.)
+- Local storage management on user's device
+- Design preferences or UI bugs
+
+## Responsible Disclosure Guidelines
+- Please do not share working exploit code
+- Do not test sensitive data you suspect
+- Respect privacy during the disclosure process
+
+## Note
+This project is for academic and personal purposes. It is not a critical production system. However, I take security issues seriously to protect user experience.

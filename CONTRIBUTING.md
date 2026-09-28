@@ -1,20 +1,26 @@
-# Katkı Sağlama Rehberi
+# Contributing Guide
 
-Merhaba! Projeme gösterdiğiniz ilgi için teşekkür ederim. 🙏
+Hello! Thank you for your interest in my project. 🙏
 
-## Kabul Edilen Katkılar
-- ✅ Hata bildirimleri (GitHub Issues)
-- ✅ Dokümantasyon düzeltmeleri
-- ✅ Çeviri iyileştirmeleri (EN, DE, FR, AR)
+## Accepted Contributions
+- ✅ Bug reports (GitHub Issues)
+- ✅ Documentation corrections
+- ✅ Translation improvements (EN, DE, FR, AR)
 
-## Kabul Edilmeyen Katkılar
-- ❌ Tasarım değişiklikleri (kişisel portfolyo)
-- ❌ İçerik eklemeleri (ilmi notlar benim çalışmamdır)
+## Non-Accepted Contributions
+- ❌ Design changes (personal portfolio)
+- ❌ Content additions (scholarly notes are my work)
 
-## Nasıl Bildirim Yapılır?
-Bir issue açarken lütfen:
-1. Sorunun detaylı açıklamasını yazın
-2. Hangi sayfada olduğunu belirtin
-3. Mümkünse ekran görüntüsü ekleyin
+## How to Report
+When opening an issue, please:
+1. Write a detailed description of the problem
+2. Specify which page it occurs on
+3. Add screenshots if possible
 
-İletişim: eslemnur_notes@proton.me
+## Contact
+📧 Email: eslemnur_notes@proton.me
+
+## Important Notes
+- This is a personal portfolio and learning project
+- Scholarly/religious content is my original work
+- I appreciate all constructive feedback

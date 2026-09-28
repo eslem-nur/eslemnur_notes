@@ -1,67 +1,67 @@
-# License
+# License Information
 
-© 2026 Eslem Nur Çetin. Tüm hakları saklıdır.
-
----
-
-## 🖥️ Kod (HTML/CSS/JavaScript)
-
-Bu web sitesinin kaynak kodu **kişisel öğrenme amaçlı** kullanılabilir.
-- ✅ Öğrenme ve inceleme için kullanılabilir
-- ⚠️ Kaynak göstermeniz beklenir
-- ❌ Ticari kullanım kesinlikle yasaktır
-- ❌ Kodu alıp kendi sitenizde satamazsınız
+© 2026 Eslem Nur Çetin. All rights reserved.
 
 ---
 
-## 📚 Ücretsiz İçerikler (Projeler Bölümü)
+## 🖥️ Code (HTML/CSS/JavaScript)
 
-Kur'an notları, tefsir özetleri, tecvid çizelgeleri, planlayıcı şablonları:
-- ✅ Kişisel kullanım için tamamen ücretsizdir
-- ✅ Arkadaşlarınızla paylaşabilirsiniz
-- ❌ Ticari amaçla kullanılamaz (satılamaz)
-- ❌ Kendi ürününüz gibi sunamazsınız
-- ✅ Kaynak gösterilerek paylaşım yapılabilir (eslemnur.github.io/eslemnur_notes/)
-
----
-
-## 💎 Satılık Ürünler (Shop Bölümü)
-
-Ko-fi'de satılan dijital ürünler (Esma-ul Husna defteri, Tefsir Defteri, vb.):
-- ℹ️ Satın alma koşulları https://ko-fi.com/eslemnur_notes üzerinden geçerlidir
-- ❌ İzinsiz yeniden satılamaz
-- ❌ Telif hakkı Eslem Nur Çetin'e aittir
-- ❌ Başka yerde yayınlanamaz
-- ✅ Satın alan kişiler kişisel kullanım için indirebilir
+The source code of this website may be used **for personal learning purposes only**.
+- ✅ May be used for learning and review
+- ⚠️ Attribution is required
+- ❌ Commercial use is strictly prohibited
+- ❌ You may not take the code and sell it on your own site
 
 ---
 
-## 🔒 Diyanet API Kullanımı
+## 📚 Free Contents (Projects Section)
 
-Bu proje [Diyanet İşleri Başkanlığı API](https://api.diyanet.gov.tr)'sini kullanır. API kullanımı Diyanet'in hizmet koşullarına tabidir.
-
----
-
-## 📞 İletişim & İzinler
-
-Telif hakkı sorusu, iş birliği talebi veya izin başvurusu için:
-📧 **E-posta:** eslemnur_notes@proton.me
-
-İzin verilebilecek durumlar (örnekler):
-- ✅ Bir cami veya ilim merkezi kendi sitesinde ücretsiz PDF'leri paylaşmak istiyor
-- ✅ Bir öğrenci referans olarak sitenizi kullanmak istiyor
-- ✅ Medya kuruluşu projenizi haber yapmak istiyor
-
-Lütfen önceden e-posta ile iletişime geçin.
+Quran notes, tafsir summaries, tajweed charts, planner templates:
+- ✅ Completely free for personal use
+- ✅ You may share with friends
+- ❌ Cannot be used for commercial purposes (cannot be sold)
+- ❌ Cannot be presented as your own product
+- ✅ Sharing with attribution is permitted (eslemnur.github.io/eslemnur_notes/)
 
 ---
 
-## Teşekkür
+## 💎 Paid Products (Shop Section)
 
-İlmi ve teknolojik içeriklerimi ilgiyle incelediğiniz için teşekkür ederim. Amacım, teknolojiyi hayır yolunda kullanmak ve ilmi yaymaktır.
-
-*"Rabbim, ilmimizi arttır."* (Tââhâ: 114)
+Digital products sold on Ko-fi (Esma-ul Husna notebook, Tafsir Notebook, etc.):
+- ℹ️ Purchase terms apply via https://ko-fi.com/eslemnur_notes
+- ❌ Cannot be resold without permission
+- ❌ Copyright belongs to Eslem Nur Çetin
+- ❌ Cannot be published elsewhere
+- ✅ Purchasers may download for personal use
 
 ---
 
-*Son güncelleme: Ocak 2026*
+## 🔒 Diyanet API Usage
+
+This project uses the [Presidency of Religious Affairs (Diyanet)](https://api.diyanet.gov.tr) API. API usage is subject to Diyanet's terms of service.
+
+---
+
+## 📞 Contact & Permissions
+
+For copyright questions, collaboration requests, or permission applications:
+📧 **Email:** eslemnur_notes@proton.me
+
+Permitted situations (examples):
+- ✅ A mosque or scholarly center wishes to share free PDFs on their own site
+- ✅ A student wants to use your site as a reference
+- ✅ A media organization wants to cover your project
+
+Please contact via email in advance.
+
+---
+
+## Acknowledgments
+
+Thank you for reviewing my scholarly and technological content with interest. My goal is to use technology on the path of good and to spread knowledge as ongoing charity (**sadaka-i jariyah**).
+
+*"My Lord, increase me in knowledge."* (Tââhâ: 114)
+
+---
+
+*Last updated: January 2026*

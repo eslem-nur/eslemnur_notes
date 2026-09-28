@@ -1,0 +1,83 @@
+name: 🐛 Hata Bildirimi
+about: Projede bir sorun bildirin
+title: '[Bug] '
+labels: bug
+assignees: ''
+
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Hatanın Açıklaması
+      placeholder: Hatayı kısaca anlatın...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Tekrar Adımları
+      placeholder: |
+        1. Şu sayfaya gidin...
+        2. Şuna tıklayın...
+        3. Aşağı kaydırın...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Beklenen Davranış
+      placeholder: Ne olması gerekliydi?
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Ekran Görüntüsü (opsiyonel)
+      placeholder: Varsa ekleyin...
+
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Tarayıcı
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Diğer
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: İşletim Sistemi
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - iOS
+        - Android
+        - Diğer
+    validations:
+      required: true
+
+  - type: dropdown
+    id: device
+    attributes:
+      label: Cihaz Türü
+      options:
+        - Desktop
+        - Mobile
+        - Tablet
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Ek Bilgiler
+      placeholder: Varsa ek detaylar...

@@ -1,4 +1,4 @@
-## 🎯 Değişiklik Amacı
+# Değişiklik Amacı
 [Bu PR ne işe yarıyor?]
 
 ## ✅ Yapılan Değişiklikler

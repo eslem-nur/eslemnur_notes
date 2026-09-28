@@ -1,37 +1,37 @@
 <!DOCTYPE html>
-<html lang="de" data-theme="light-pink">
+<html lang="de" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iKuran | Eslem Nur</title>
     <meta name="description" content="iKuran“-App von Eslem Nur Çetin – einer Studentin der Theologie und Webentwicklerin. Hören Sie den Koran mit einem digitalen iPod.">
-    <meta name="keywords" content="Theologie, Web Entwicklung, Tafsir, Arabisch, Proton, Eslem Nur Çetin, Imam Hatip, Digitale Notizen, Portfolio, iKuran, iPod, pink">
+    <meta name="keywords" content="Theologie, Web Entwicklung, Tafsir, Arabisch, Proton, Eslem Nur Çetin, Imam Hatip, Digitale Notizen, Portfolio, iKuran, iPod, schwarz">
     <meta name="author" content="Eslem Nur Çetin">
     <meta name="robots" content="index, follow">
 
     
     <!-- Open Graph (Sosyal Medya Paylaşımı İçin) -->
-    <meta property="og:title" content="Eslem Nur | iKuran Pink">
+    <meta property="og:title" content="Eslem Nur | iKuran Schwarz">
     <meta property="og:description" content="Eslem Nur Çetin - Portfolio einer Theologiestudentin und Webentwicklerin. Kostenlose Ilm-Notizen und Web Apps.">
-    <meta property="og:image" content="https://i.pinimg.com/736x/9f/cc/08/9fcc08f6206bf223ee808015a23416e4.jpg">
+    <meta property="og:image" content="https://i.pinimg.com/736x/c4/55/c0/c455c0301e2610f5ce26ab640ff78f9c.jpg">
     <meta property="og:url" content="https://eslemnur.github.io/eslemnur_notes/de/">
     <meta property="og:type" content="Web App">
     <meta property="og:locale" content="de_DE">
 
     <!-- PWA Manifest Ekleme -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/eslemnur_notes/PWA/png/apple-touch-icon3.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/eslemnur_notes/PWA/png/favicon3-96x96.png" />
-    <link rel="manifest2" href="/eslemnur_notes/PWA/manifest/site3.webmanifest" />
-    <meta name="theme-color" content="#ddc6dc" />
-    <link rel="icon" type="image/svg+xml" href="/eslemnur_notes/PWA/svg/favicon3.svg" />
-    <link rel="shortcut icon" href="/eslemnur_notes/PWA/icon/favicon3.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/eslemnur_notes/PWA/png/apple-touch-icon2.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/eslemnur_notes/PWA/png/favicon2-96x96.png" />
+    <link rel="manifest" href="/eslemnur_notes/PWA/manifest/site2.webmanifest" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/svg+xml" href="/eslemnur_notes/PWA/svg/favicon2.svg" />
+    <link rel="shortcut icon" href="/eslemnur_notes/PWA/icon/favicon2.ico" />
 
     <!-- PWA Service Worker Kaydı -->
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          // Başındaki nokyayı (.sw.js) kaldır, sadece sw.js yap
-          navigator.serviceWorker.register('/eslemnur_notes/PWA/js-files/sw3.js', { scope: '/eslemnur_notes/' })
+          
+          navigator.serviceWorker.register('/eslemnur_notes/PWA/js-files/sw2.js', { scope: '/eslemnur_notes/' })
             .then(reg => console.log('Service Worker erfolgreich registriert!', reg.scope))
             .catch(err => console.log('Service Worker Registrierung fehlgeschlagen:', err));
         });
@@ -42,10 +42,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-  <!-- iKuran CSS -->
+    <!-- iKuran CSS -->
     <link rel="stylesheet" href="../ikuran-styles.css">
+  
 
-    
 </head>
 <body>
 
@@ -70,7 +70,7 @@
         <div class="player-view" id="player-view">
             <div class="now-playing-title" id="np-title">Sure Name</div>
             <div class="now-playing-reciter">Mishary Alafasy</div>
-            <div style="font-size: 40px; "><i class='fa-solid fa-music' style='color: #dd8399'></i></div>
+            <div style="font-size: 40px; "><i class='fa-solid fa-music' style='color: #000'></i></div>
             <div class="progress-container" id="progress-container">
                 <div class="progress-bar" id="progress-bar"></div>
             </div>
@@ -89,9 +89,9 @@
         <div class="player-view" id="settings-view" style="display: none;">
     <div class="now-playing-title">Einstellungen</div>
     
-    <!-- İçerik artık kaydırılabilir -->
+    <!-- İçerik kaydırılabilir -->
     <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px; margin-bottom: 20px; width: 80%;">
-        <!-- Butonlarınız buraya -->
+        <!-- Butonlar -->
         <button id="btn-theme" class="settings-btn">
                     <i class='fas fa-moon' id="theme-icon"></i> 
                     <span id="theme-text">Dark Mode</span>
@@ -113,8 +113,7 @@
                 <button class="settings-btn" id="btn-speed-up" style="font-size: 10px; margin-bottom: 70px; "><i class='fas fa-plus'></i></button>
             </div>
         </div>
-        
-        <!-- Durum Mesajları -->
+<!-- Durum Mesajları -->
         <div id="msg-loading" class="status-msg msg-loading">Ladet...</div>
         <div id="msg-player" class="status-msg msg-player">Läuft</div>
         <div id="msg-skip" class="status-msg msg-skip">+5s</div>

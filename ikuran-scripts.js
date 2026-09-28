@@ -503,7 +503,8 @@ function updateThemeButton() {
     const langMsg = msgs.darkMode || 'Dark Mode';
     const lightMsg = msgs.lightMode || 'Light Mode';
     
-    if (currentTheme === 'dark' || currentTheme === 'dark-pink') {
+    // ✅ DOĞRU: Sadece 'dark' kontrol et
+    if (currentTheme === 'dark') {
         themeIcon.className = 'fas fa-sun';
         themeText.textContent = lightMsg;
     } else {
@@ -521,17 +522,15 @@ function setTheme(theme) {
 
 btnTheme.addEventListener('click', () => {
     const currentTheme = document.documentElement.getAttribute('data-theme');
-    const isPink = currentTheme.includes('pink');
+    const currentColor = document.documentElement.getAttribute('data-color');
     
     let newTheme;
+    
+    // Light → Dark
     if (currentTheme === 'light') {
-        newTheme = isPink ? 'dark-pink' : 'dark';
-    } else if (currentTheme === 'light-pink') {
-        newTheme = 'dark-pink';
-    } else if (currentTheme === 'dark') {
-        newTheme = isPink ? 'light-pink' : 'light';
+        newTheme = 'dark';
     } else {
-        newTheme = isPink ? 'light-pink' : 'light';
+        newTheme = 'light';
     }
     
     setTheme(newTheme);

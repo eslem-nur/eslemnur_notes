@@ -1,62 +1,62 @@
 /* ============================================
-   iKURAN - GLOBAL STYLES (PINK + BLACK)
-   Tüm Diller ve Renk Temaları İçin Ortak CSS
+   iKURAN - GLOBAL STYLES (FIXED)
+   Renk Temaları Artık Karışmayacak
    ============================================ */
 
-/* === LIGHT THEME (BLACK) === */
-[data-theme="light"] {
+/* === BLACK TEMA === */
+[data-color="black"][data-theme="light"] {
     --bg-color: #f0f0f0;
     --container-prim: #0a0a0a;
     --container-sec: #1a1a1a;
     --bg-screen: #fff;
     --box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    --shadow-light: rgba(255, 255, 255, 0.6);   
-    --shadow-dark: rgba(0, 0, 0, 0.25);   
-    --shadow-deep: rgba(0, 0, 0, 0.35); 
+    --shadow-light: rgba(255, 255, 255, 0.6);
+    --shadow-dark: rgba(0, 0, 0, 0.25);
+    --shadow-deep: rgba(0, 0, 0, 0.35);
     --border: #999;
 }
 
-/* === DARK THEME (BLACK) === */
-[data-theme="dark"] {
+[data-color="black"][data-theme="dark"] {
     --bg-color: #1e1e1e;
     --container-prim: #000000;
     --container-sec: #111111;
     --bg-screen: #fff;
     --box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     --shadow-light: rgba(255, 255, 255, 0.5);
-    --shadow-dark: rgba(100, 40, 60, 0.4);      
-    --shadow-deep: rgba(80, 20, 40, 0.5);       
+    --shadow-dark: rgba(100, 40, 60, 0.4);
+    --shadow-deep: rgba(80, 20, 40, 0.5);
     --border: #555;
 }
 
-/* === LIGHT THEME (PINK) === */
-[data-theme="light-pink"] {
+/* === PINK TEMA === */
+[data-color="pink"][data-theme="light"] {
     --bg-color: #FFF9F9;
     --container-prim: #dd8399;
     --container-sec: #FFebf0;
     --bg-screen: #fff;
     --box-shadow: 0 20px 40px rgba(160, 100, 120, 0.2);
-    --shadow-light: rgba(255, 255, 255, 0.6);   
-    --shadow-dark: rgba(180, 100, 120, 0.25);   
-    --shadow-deep: rgba(140, 60, 80, 0.35); 
+    --shadow-light: rgba(255, 255, 255, 0.6);
+    --shadow-dark: rgba(180, 100, 120, 0.25);
+    --shadow-deep: rgba(140, 60, 80, 0.35);
     --border: #999;
 }
 
-/* === DARK THEME (PINK) === */
-[data-theme="dark-pink"] {
+[data-color="pink"][data-theme="dark"] {
     --bg-color: #1e1e1e;
     --container-prim: #ad1457;
     --container-sec: #880e4f;
     --bg-screen: #fff;
     --box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     --shadow-light: rgba(255, 255, 255, 0.5);
-    --shadow-dark: rgba(173, 20, 87, 0.4);      
-    --shadow-deep: rgba(136, 14, 79, 0.5);       
+    --shadow-dark: rgba(173, 20, 87, 0.4);
+    --shadow-deep: rgba(136, 14, 79, 0.5);
     --border: #555;
 }
 
+/* Her iki koyu mod için */
 [data-theme="dark"] body,
-[data-theme="dark-pink"] body {
+[data-theme="dark"] .status-msg,
+[data-theme="dark-pink"] .status-msg {
     background-image: none;
 }
 
@@ -81,11 +81,11 @@ body {
     border-radius: 45px;
     border: none;
     box-shadow: 
-        15px 15px 40px var(--shadow-dark),      
-        -5px -5px 20px var(--shadow-light),     
-        inset 2px 2px 8px var(--shadow-light),  
-        inset -2px -2px 8px var(--shadow-deep), 
-        inset 0 0 20px rgba(0, 0, 0, 0.1);  
+        15px 15px 40px var(--shadow-dark),
+        -5px -5px 20px var(--shadow-light),
+        inset 2px 2px 8px var(--shadow-light),
+        inset -2px -2px 8px var(--shadow-deep),
+        inset 0 0 20px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -100,11 +100,11 @@ body {
     top: 0; left: 0; right: 0; bottom: 0;
     border-radius: 45px;
     box-shadow: 
-        15px 15px 40px var(--shadow-dark),      
-        -5px -5px 20px var(--shadow-light),     
-        inset 2px 2px 8px var(--shadow-light),  
-        inset -2px -2px 8px var(--shadow-deep), 
-        inset 0 0 20px rgba(0, 0, 0, 0.1);  
+        15px 15px 40px var(--shadow-dark),
+        -5px -5px 20px var(--shadow-light),
+        inset 2px 2px 8px var(--shadow-light),
+        inset -2px -2px 8px var(--shadow-deep),
+        inset 0 0 20px rgba(0, 0, 0, 0.1);
     pointer-events: none;
     z-index: 1;
 }
@@ -119,9 +119,7 @@ body {
     overflow: hidden;
     position: relative;
     z-index: 2;
-    box-shadow: 
-        inset 3px 3px 8px rgba(0,0,0,0.3), 
-        0 2px 5px rgba(0,0,0,0.1); 
+    box-shadow: inset 3px 3px 8px rgba(0,0,0,0.3), 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .click-wheel {
@@ -170,7 +168,7 @@ body {
 .wheel-label {
     position: absolute;
     color: #999;
-    font-size: 16px; 
+    font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
@@ -317,8 +315,7 @@ body {
 .msg-speed { top: 60%; left: 50%; transform: translateX(-50%); font-weight: bold; color: var(--container-prim); }
 .msg-info { top: 50%; left: 50%; transform: translate(-50%, -50%); font-weight: bold; }
 
-[data-theme="dark"] .status-msg,
-[data-theme="dark-pink"] .status-msg {
+[data-theme="dark"] .status-msg {
     color: #ccc;
     background: rgba(30,30,30,0.9);
     border: 1px solid #555;

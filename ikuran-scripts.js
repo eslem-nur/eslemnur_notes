@@ -503,7 +503,6 @@ function updateThemeButton() {
     const langMsg = msgs.darkMode || 'Dark Mode';
     const lightMsg = msgs.lightMode || 'Light Mode';
     
-    // ✅ DOĞRU: Sadece 'dark' kontrol et
     if (currentTheme === 'dark') {
         themeIcon.className = 'fas fa-sun';
         themeText.textContent = lightMsg;

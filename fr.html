@@ -353,6 +353,44 @@
     direction: ltr !important;
     text-align: left !important;
 }
+
+/* --- STAR RATING --- */
+.feedback-section {
+    padding: 25px;
+    background: var(--note-bg);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--soft-shadow);
+}
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    direction: ltr; 
+}
+
+.star {
+    font-size: 42px;
+    cursor: pointer;
+    color: #E6D0D0; 
+    transition: color 0.3s ease, transform 0.2s ease;
+    user-select: none;
+}
+
+.star:hover {
+    transform: scale(1.2);
+}
+
+
+.star.active {
+    color: var(--primary-color);
+}
+
+
+.star:hover {
+    color: var(--primary-color);
+}
     </style>
 </head>
 <body>
@@ -760,6 +798,20 @@
                 </div>
             </div>
 
+            <!-- STAR RATING -->
+<div class="feedback-section" style="margin: 40px auto; max-width: 500px;">
+    <h3 style="font-family: 'Playfair Display', serif; color: var(--primary-color); text-align: center; margin-bottom: 15px;">Notez Mon Site Web</h3>
+    <div class="star-rating" id="starRating">
+        <span class="star" data-value="1">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star" data-value="3">★</span>
+        <span class="star" data-value="4">★</span>
+        <span class="star" data-value="5">★</span>
+    </div>
+    <p class="rating-text" id="ratingText">Vous n'avez pas encore noté</p>
+    <input type="hidden" name="rating" id="ratingValue" value="0">
+</div>
+
             <p class="copyright">© <span id="current-year"></span> Eslem Nur Çetin. Tous droits réservés.</p>
         </div>
         
@@ -995,6 +1047,88 @@
             const yearSpan = document.getElementById("current-year");
             if (yearSpan) yearSpan.textContent = new Date().getFullYear();
         }
+
+        // --- YILDIZ RATING FONKSİYONLARI (DÜZELTİLDİ) ---
+const stars = document.querySelectorAll('.star');
+const ratingValue = document.getElementById('ratingValue');
+const ratingText = document.getElementById('ratingText');
+
+if (stars.length > 0 && ratingValue && ratingText) {
+    stars.forEach(star => {
+        star.addEventListener('click', () => {
+            const value = parseInt(star.getAttribute('data-value'));
+            activateStars(value);
+            saveRating(value);
+        });
+        
+        star.addEventListener('mouseenter', () => {
+            const tempValue = parseInt(star.getAttribute('data-value'));
+            highlightStars(tempValue);
+        });
+    });
+
+    // Mouse çıkınca seçili haline dön
+    document.getElementById('starRating').addEventListener('mouseleave', () => {
+        const selected = parseInt(ratingValue.value);
+        highlightStars(selected);
+    });
+    
+    // Sayfa yüklendiğinde kaydedilmiş rating'i göster
+    loadRating();
+}
+
+function activateStars(value) {
+    ratingValue.value = value;
+    highlightStars(value);
+    updateRatingText(value);
+}
+
+function highlightStars(value) {
+    stars.forEach((star, index) => {
+        const starValue = parseInt(star.getAttribute('data-value'));
+        
+        // Yıldız değeri <= seçilen değerse ACTIVE ekle
+        if (starValue <= value) {
+            star.classList.add('active');
+        } else {
+            star.classList.remove('active');
+        }
+    });
+}
+
+function updateRatingText(value) {
+    const messages = {
+        0: 'Vous n\'avez pas encore noté',
+        1: 'Très mauvais 😞',
+        2: 'Mauvais',
+        3: 'Moyen ✿',
+        4: 'Bon',
+        5: 'Excellente! ⭐'
+    };
+    ratingText.textContent = messages[value];
+}
+
+// LocalStorage'a kaydet
+function saveRating(value) {
+    try {
+        localStorage.setItem('userRating', value);
+    } catch(e) {
+        console.log('LocalStorage kullanılamıyor');
+    }
+}
+
+// LocalStorage'dan yükle
+function loadRating() {
+    try {
+        const saved = localStorage.getItem('userRating');
+        if (saved) {
+            const value = parseInt(saved);
+            activateStars(value);
+        }
+    } catch(e) {
+        console.log('LocalStorage okunamıyor');
+    }
+}
     </script>
 </body>
 </html>

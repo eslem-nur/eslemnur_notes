@@ -62,7 +62,7 @@ Please contact via email in advance.
 
 Thank you for reviewing my scholarly and technological content with interest. My goal is to use technology on the path of good and to spread knowledge as ongoing charity (**sadaka-i jariyah**).
 
-*"My Lord, increase me in knowledge."* (Tââhâ: 114)
+*"Oh Allah, increase us in knowledge."* (Tââhâ: 114)
 
 ---
 

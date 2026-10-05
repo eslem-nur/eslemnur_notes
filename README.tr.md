@@ -82,12 +82,18 @@ Hedefim: إن شاء الله ilmi sadece kağıtta bırakmamak, dijital dünyad
 
 © 2026 Eslem Nur Çetin. Tüm hakları saklıdır.
 
+**Bu portfolyo altındaki markalar:**
+- **Eslem Nur Notes™** — Dijital notlar, çalışma materyalleri
+- **Eslem Nur Kalligraphie™** — Hat sanatı, tuval işleri
+
 Bu proje [CC BY-NC-SA 4.0](./LICENSE) kapsamında lisanslanmıştır.
 
 🇬🇧 [Lisans Detayları (İngilizce)](./LICENSE.md)
 🇹🇷 [Lisans Detayları (Türkçe)](./LICENSE.tr.md)
 
 Bu projedeki içerikler (notlar, şablonlar, web uygulamaları) **sadaka-i jariyah** (devamlı sadaka) niyetiyle paylaşılmaktadır. Ücretsiz içerikler serbestçe kullanılabilir; ticari ürünler Ko-fi üzerinden satın alınmalıdır.
+
+> ™ tescilsiz ticari marka anlamına gelir. Bu işaretler Almanya'da ortak hukuk ticari marka ilkelerine (MarkenG) göre kullanılmaktadır.
 
 ---
 

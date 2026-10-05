@@ -2,7 +2,7 @@
 
 # 🌸 Eslem Nur | İlham & Kod
 
-> "Ey Rabbim! Bilgimi artır." — رَبِّ زِدْنِى عِلْمًا
+> "Ey Rabbim! İlmimizi artır." — رَبِّ زِدْنِى عِلْمًا
 
 İmam Hatip Lisesi mezunu ve birinci sınıf İlahiyat Fakültesi öğrencisi; dini ilimleri modern web teknolojileriyle harmanlayan kişisel portfolyo ve dijital ürün platformu.
 

@@ -541,3 +541,37 @@
             }
             .nav-links a { border: none; }
         }
+
+        .trademark-notice {
+    font-size: 0.9rem;
+    color: var(--text-light, #666);
+    margin: 8px 0;
+}
+
+.dark-mode .trademark-notice {
+    color: var(--text-light-dark, #aaa);
+}
+
+.brand-badge {
+    display: inline-block;
+    background: rgba(109, 74, 175, 0.1);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--primary-color, #6d4aff);
+}
+
+.separator {
+    margin: 0 8px;
+    color: var(--text-muted, #ccc);
+}
+
+.legal-note {
+    font-size: 0.75rem;
+    color: var(--text-muted, #999);
+    margin: 8px 0 0;
+}
+
+.dark-mode .legal-note {
+    color: var(--text-muted-dark, #777);
+}

@@ -1,10 +1,15 @@
 const CACHE_NAME = 'eslem-nur-v1';
 const urlsToCache = [
   
-  '/eslemnur_notes/ipod-kuran.html',
-  '/eslemnur_notes/PWA/icon/favicon3.ico',
-  '/eslemnur_notes/PWA/png/favicon3-96x96.png',
-  '/eslemnur_notes/PWA/manifest/site3.webmanifest',
+  '/eslemnur_notes/',
+  '/eslemnur_notes/index.html',
+  '/eslemnur_notes/de.html',
+  '/eslemnur_notes/fr.html',
+  '/eslemnur_notes/en.html',
+  '/eslemnur_notes/ar.html',
+  '/eslemnur_notes/PWA/icon/favicon.ico',
+  '/eslemnur_notes/PWA/png/favicon-96x96.png',
+  '/eslemnur_notes/PWA/manifest/site.webmanifest',
   // İstersen diğer CSS/JS dosyalarını da buraya ekleyebilirsin
 ];
 

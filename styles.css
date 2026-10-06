@@ -399,7 +399,7 @@ strong { font-family: 'Lato', 'Segoe UI', sans-serif; font-weight: 700; -webkit-
 
 .brand-badge {
     display: inline-block;
-    background: rgba(109, 74, 175, 0.1);
+    /* background: rgba(109, 74, 175, 0.1); */
     padding: 4px 10px;
     border-radius: 4px;
     font-size: 0.85rem;

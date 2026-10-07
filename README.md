@@ -75,7 +75,7 @@ My goal: إن شاء الله to not leave knowledge only on paper, but to sprea
 | 🌐 Linktree | [linktr.ee/eslemnur](http://linktr.ee/eslemnur) |
 | ☕ Ko-fi | [ko-fi.com/eslemnur_notes](https://ko-fi.com/eslemnur_notes) |
 | ☕ Ko-fi | [ko-fi.com/eslemnur_kalligrafie](https://ko-fi.com/eslemnur_kalligrafie) |
-| ✉️ Email | eslemnur_notes@proton.me |
+| ✉️ Email | eslemnur-official@proton.me |
 
 ## 📄 License
 

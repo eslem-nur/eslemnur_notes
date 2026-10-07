@@ -47,7 +47,7 @@ This project uses the [Presidency of Religious Affairs (Diyanet)](https://api.di
 ## 📞 Contact & Permissions
 
 For copyright questions, collaboration requests, or permission applications:
-📧 **Email:** eslemnur_notes@proton.me
+📧 **Email:** eslemnur-official@proton.me
 
 Permitted situations (examples):
 - ✅ A mosque or scholarly center wishes to share free PDFs on their own site

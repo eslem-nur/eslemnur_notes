@@ -9,7 +9,7 @@
 
 Imam Hatip High School graduate and first-year Theology Faculty student; a personal portfolio and digital product platform that blends religious sciences with modern web technologies.
 
-🔗 **Live Site:** [Eslem Nur](https://eslemnur-notes.github.io/eslemnur_notes/)
+🔗 **Live Site:** [Eslem Nur](https://eslem-nur.github.io/official/)
 
 ---
 
@@ -65,15 +65,16 @@ My goal: إن شاء الله to not leave knowledge only on paper, but to sprea
 
 ## 📸 Preview & Content Summary
 
-![Site Preview](https://i.pinimg.com/736x/98/a5/ca/98a5ca07841720013645e7a35330fa02.jpg)
-![Content Summary](https://i.pinimg.com/736x/5e/d1/a3/5ed1a331608a5a9c1974cab89ffeb8f5.jpg)
+![Site Preview](https://i.pinimg.com/736x/81/c7/2f/81c72ffba837191d76f5be3a664c9184.jpg)
+![Content Summary](https://i.pinimg.com/736x/d4/31/f6/d431f6a79434d130e6e405bfb4e44502.jpg)
 
 ## 🔗 Contact
 
 | Platform | Link |
 | :--- | :--- |
-| 🌐 Linktree | [linktr.ee/eslemnur_notes](http://linktr.ee/eslemnur_notes) |
+| 🌐 Linktree | [linktr.ee/eslemnur](http://linktr.ee/eslemnur) |
 | ☕ Ko-fi | [ko-fi.com/eslemnur_notes](https://ko-fi.com/eslemnur_notes) |
+| ☕ Ko-fi | [ko-fi.com/eslemnur_kalligrafie](https://ko-fi.com/eslemnur_kalligrafie) |
 | ✉️ Email | eslemnur_notes@proton.me |
 
 ## 📄 License
@@ -82,7 +83,7 @@ My goal: إن شاء الله to not leave knowledge only on paper, but to sprea
 
 **Brands under this portfolio:**
 - **Eslem Nur Notes™** — Digital notes, study materials
-- **Eslem Nur Kalligraphie™** — Calligraphy, canvas art
+- **Eslem Nur Kalligrafie™** — Calligraphy, canvas art
 
 This project is licensed under [CC BY-NC-SA 4.0](./LICENSE).
 

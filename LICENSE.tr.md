@@ -23,7 +23,7 @@ Kur'an notları, tefsir özetleri, tecvid çizelgeleri, planlayıcı şablonlar�
 - ✅ Arkadaşlarınızla paylaşabilirsiniz
 - ❌ Ticari amaçla kullanılamaz (satılamaz)
 - ❌ Kendi ürününüz gibi sunamazsınız
-- ✅ Kaynak gösterilerek paylaşım yapılabilir (eslemnur.github.io/eslemnur_notes/)
+- ✅ Kaynak gösterilerek paylaşım yapılabilir (eslem-nur.github.io/official/)
 
 ---
 
@@ -47,7 +47,7 @@ Bu proje Diyanet İşleri Başkanlığı API'sini kullanır. API kullanımı Diy
 ## 📞 İletişim & İzinler
 
 Telif hakkı sorusu, iş birliği talebi veya izin başvurusu için:
-📧 **E-posta:** eslemnur_notes@proton.me
+📧 **E-posta:** eslemnur-official@proton.me
 
 İzin verilebilecek durumlar (örnekler):
 - ✅ Bir cami veya ilim merkezi kendi sitesinde ücretsiz PDF'leri paylaşmak istiyor

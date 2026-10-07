@@ -420,3 +420,14 @@ strong { font-family: 'Lato', 'Segoe UI', sans-serif; font-weight: 700; -webkit-
 .dark-mode .legal-note {
     color: var(--text-muted-dark, #777);
 }
+
+/* Logo arabic reference button */
+[dir="rtl"] a[href*="logo-reference"] {
+    direction: rtl;
+    unicode-bidi: embed;
+}
+
+[dir="rtl"] .btn-outline i {
+    margin-left: 8px;
+    margin-right: 0;
+}

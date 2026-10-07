@@ -18,10 +18,10 @@
     <meta property="og:type" content="website">
     
     <!-- Favicon & PWA Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/PWA/png/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/PWA/png/favicon-96x96.png" />
-    <link rel="icon" type="image/svg+xml" href="/PWA/svg/favicon.svg" />
-    <link rel="shortcut icon" href="/PWA/icon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/eslemnur_notes/PWA/png/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/eslemnur_notes/PWA/png/favicon-96x96.png" />
+    <link rel="icon" type="image/svg+xml" href="/eslemnur_notes/PWA/svg/favicon.svg" />
+    <link rel="shortcut icon" href="/eslemnur_notes/PWA/icon/favicon.ico" />
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,6 +30,27 @@
     
     <!-- styles -->
     <link rel="stylesheet" href="/eslemnur_notes/logo-reference/logo-reference-styles.css">
+
+    <!-- PWA Manifest Ekleme -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/eslemnur_notes/PWA/png/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/eslemnur_notes/PWA/png/favicon-96x96.png" />
+    <link rel="manifest" href="/eslemnur_notes/PWA/manifest/site.webmanifest" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/svg+xml" href="/eslemnur_notes/PWA/svg/favicon.svg" />
+    <link rel="shortcut icon" href="/eslemnur_notes/PWA/icon/favicon.ico" />
+
+    <!-- PWA Service Worker Kaydı -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          // Başındaki nokyayı (.sw.js) kaldır, sadece sw.js yap
+          navigator.serviceWorker.register('/eslemnur_notes/PWA/js-files/sw.js', { scope: '/eslemnur_notes/' })
+            .then(reg => console.log('Service Worker başarıyla kaydedildi!', reg.scope))
+            .catch(err => console.log('Service Worker kaydı başarısız:', err));
+        });
+      }
+    </script>
+    
 </head>
 <body>
 
@@ -144,7 +165,7 @@
 <footer>
     <div class="container">
         <div class="footer-arabic">رَبِّ زِدْنَا عِلْمًا</div>
-        <p style="color: var(--text-light); margin-bottom: 20px;">Mein Herr, erhöhe mich im Wissen.</p>
+        <p style="color: var(--text-light); margin-bottom: 20px;">Oh Allah, erhöhe unser Wissen.</p>
         
         <div class="social-links" style="display: flex; justify-content: center; gap: 20px; margin: 20px 0; flex-wrap: wrap;">
             <a href="https://github.com/eslem-nur" class="btn-outline" target="_blank" title="GitHub">

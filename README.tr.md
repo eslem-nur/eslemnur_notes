@@ -6,7 +6,7 @@
 
 İmam Hatip Lisesi mezunu ve birinci sınıf İlahiyat Fakültesi öğrencisi; dini ilimleri modern web teknolojileriyle harmanlayan kişisel portfolyo ve dijital ürün platformu.
 
-🔗 **Canlı Site:** [Eslem Nur](https://eslemnur-notes.github.io/eslemnur_notes/)
+🔗 **Canlı Site:** [Eslem Nur](https://eslem-nur.github.io/official/)
 
 ---
 
@@ -72,9 +72,10 @@ Hedefim: إن شاء الله ilmi sadece kağıtta bırakmamak, dijital dünyad
 
 | Platform | Link |
 | :--- | :--- |
-| 🌐 Linktree | [linktr.ee/eslemnur_notes](http://linktr.ee/eslemnur_notes) |
+| 🌐 Linktree | [linktr.ee/eslemnur](http://linktr.ee/eslemnur) |
 | ☕ Ko-fi | [ko-fi.com/eslemnur_notes](https://ko-fi.com/eslemnur_notes) |
-| ✉️ E-posta | eslemnur_notes@proton.me |
+| ☕ Ko-fi | [ko-fi.com/eslemnur_kalligrafie](https://ko-fi.com/eslemnur_kalligrafie) |
+| ✉️ E-posta | eslemnur-official@proton.me |
 
 ---
 
@@ -84,7 +85,7 @@ Hedefim: إن شاء الله ilmi sadece kağıtta bırakmamak, dijital dünyad
 
 **Bu portfolyo altındaki markalar:**
 - **Eslem Nur Notes™** — Dijital notlar, çalışma materyalleri
-- **Eslem Nur Kalligraphie™** — Hat sanatı, tuval işleri
+- **Eslem Nur Kalligrafie™** — Hat sanatı, tuval işleri
 
 Bu proje [CC BY-NC-SA 4.0](./LICENSE) kapsamında lisanslanmıştır.
 

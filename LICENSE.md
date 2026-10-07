@@ -23,7 +23,7 @@ Quran notes, tafsir summaries, tajweed charts, planner templates:
 - ✅ You may share with friends
 - ❌ Cannot be used for commercial purposes (cannot be sold)
 - ❌ Cannot be presented as your own product
-- ✅ Sharing with attribution is permitted (eslemnur.github.io/eslemnur_notes/)
+- ✅ Sharing with attribution is permitted (eslem-nur.github.io/official/)
 
 ---
 

@@ -6,7 +6,7 @@
 
 Güvenlik açıklarını bildirmek için lütfen:
 1. **GitHub Security Advisory** formunu kullanın
-2. Veya doğrudan bana e-posta atın: eslemnur_notes@proton.me
+2. Veya doğrudan bana e-posta atın: eslemnur-official@proton.me
 
 ## Kapsam
 Bu politika şu bileşenleri kapsar:

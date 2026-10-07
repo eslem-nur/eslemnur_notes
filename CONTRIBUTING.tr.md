@@ -20,7 +20,7 @@ Bir issue açarken lütfen:
 3. Mümkünse ekran görüntüsü ekleyin
 
 ## İletişim
-📧 E-posta: eslemnur_notes@proton.me
+📧 E-posta: eslemnur-official@proton.me
 
 ## Önemli Notlar
 - Bu bir kişisel portfolyo ve öğrenme projesidir

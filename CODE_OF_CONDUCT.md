@@ -52,7 +52,7 @@ We pledge to make participation in our project a harassment-free experience for 
 Violations will be addressed appropriately. The project owner reserves the right to terminate any communication deemed necessary.
 
 ### Reporting
-Please report violations to eslemnur_notes@proton.me
+Please report violations to eslemnur-official@proton.me
 
 ---
 

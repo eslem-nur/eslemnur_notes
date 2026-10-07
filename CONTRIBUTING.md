@@ -20,7 +20,7 @@ When opening an issue, please:
 3. Add screenshots if possible
 
 ## Contact
-📧 Email: eslemnur_notes@proton.me
+📧 Email: eslemnur-official@proton.me
 
 ## Important Notes
 - This is a personal portfolio and learning project

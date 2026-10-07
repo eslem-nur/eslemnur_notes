@@ -6,7 +6,7 @@
 
 To report security vulnerabilities, please:
 1. **Use the GitHub Security Advisory** form, or
-2. **Email me directly:** eslemnur_notes@proton.me
+2. **Email me directly:** eslemnur-official@proton.me
 
 ## Scope
 This policy covers:

@@ -1,15 +1,15 @@
 const CACHE_NAME = 'eslem-nur-v1';
 const urlsToCache = [
   
-  '/eslemnur_notes/',
-  '/eslemnur_notes/index.html',
-  '/eslemnur_notes/de.html',
-  '/eslemnur_notes/fr.html',
-  '/eslemnur_notes/en.html',
-  '/eslemnur_notes/ar.html',
-  '/eslemnur_notes/PWA/icon/favicon.ico',
-  '/eslemnur_notes/PWA/png/favicon-96x96.png',
-  '/eslemnur_notes/PWA/manifest/site.webmanifest',
+  '/official/',
+  '/official/index.html',
+  '/official/de.html',
+  '/official/fr.html',
+  '/official/en.html',
+  '/official/ar.html',
+  '/official/PWA/icon/favicon.ico',
+  '/official/PWA/png/favicon-96x96.png',
+  '/official/PWA/manifest/site.webmanifest',
   // İstersen diğer CSS/JS dosyalarını da buraya ekleyebilirsin
 ];
 

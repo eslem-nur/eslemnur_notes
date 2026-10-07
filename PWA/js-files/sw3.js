@@ -1,9 +1,9 @@
 const CACHE_NAME = 'eslem-nur-v3';
 const urlsToCache = [
   
-  '/eslemnur_notes/PWA/icon/favicon3.ico',
-  '/eslemnur_notes/PWA/png/favicon3-96x96.png',
-  '/eslemnur_notes/PWA/manifest/site3.webmanifest',
+  '/official/PWA/icon/favicon3.ico',
+  '/official/PWA/png/favicon3-96x96.png',
+  '/official/PWA/manifest/site3.webmanifest',
   // İstersen diğer CSS/JS dosyalarını da buraya ekleyebilirsin
 ];
 

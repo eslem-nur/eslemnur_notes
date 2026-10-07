@@ -3,13 +3,13 @@
   "short_name": "ENÇ",
   "icons": [
     {
-      "src": "/eslemnur_notes/PWA/web-app-manifest-192x192.png",
+      "src": "/official/PWA/web-app-manifest-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/eslemnur_notes/PWA/web-app-manifest-512x512.png",
+      "src": "/official/PWA/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"

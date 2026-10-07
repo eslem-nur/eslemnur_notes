@@ -15,24 +15,24 @@
     <meta property="og:title" content="Eslem Nur Çetin | Ilm & Ibadah Tracker">
     <meta property="og:description" content="Student of knowledge and developer portfolio. Free educational notes and digital applications.">
     <meta property="og:image" content="https://i.pinimg.com/736x/06/a5/e9/06a5e9647ecfa607df8fbc313f9d5484.jpg">
-    <meta property="og:url" content="https://eslem-nur.github.io/eslemnur_notes/en/">
+    <meta property="og:url" content="https://eslem-nur.github.io/official/en/">
     <meta property="og:type" content="Web App">
     <meta property="og:locale" content="en_US">
 
     <!-- PWA Manifest Add -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/eslemnur_notes/PWA/png/apple-touch-icon4.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/eslemnur_notes/PWA/png/favicon4-96x96.png" />
-    <link rel="manifest" href="/eslemnur_notes/PWA/manifest/site4.webmanifest" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/official/PWA/png/apple-touch-icon4.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/official/PWA/png/favicon4-96x96.png" />
+    <link rel="manifest" href="/official/PWA/manifest/site4.webmanifest" />
     <meta name="theme-color" content="#ffffff" />
-    <link rel="icon" type="image/svg+xml" href="/eslemnur_notes/PWA/svg/favicon4.svg" />
-    <link rel="shortcut icon" href="/eslemnur_notes/PWA/icon/favicon4.ico" />
+    <link rel="icon" type="image/svg+xml" href="/official/PWA/svg/favicon4.svg" />
+    <link rel="shortcut icon" href="/official/PWA/icon/favicon4.ico" />
 
     <!-- PWA Service Worker Registration -->
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           // Remove leading dot (.sw.js), use only sw.js
-          navigator.serviceWorker.register('/eslemnur_notes/PWA/js-files/sw4.js', { scope: '/eslemnur_notes/' })
+          navigator.serviceWorker.register('/official/PWA/js-files/sw4.js', { scope: '/official/' })
             .then(reg => console.log('Service Worker successfully registered!', reg.scope))
             .catch(err => console.log('Service Worker registration failed:', err));
         });
@@ -50,7 +50,7 @@
 <body>
 
 <div class="container">
-    <a href="https://eslem-nur.github.io/eslemnur_notes/en.html" class="back-link">← Return to Home</a>
+    <a href="https://eslem-nur.github.io/official/en.html" class="back-link">← Return to Home</a>
     <!-- Settings Button -->
     <button class="settings-btn" onclick="toggleSettingsMenu()" title="Theme Settings">
         ⚙️

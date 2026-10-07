@@ -1,12 +1,12 @@
 const CACHE_NAME = 'eslem-nur-v3';
 const urlsToCache = [
   
-  '/eslemnur_notes/tr/ikuran-black.html',
-  '/eslemnur_notes/de/ikuran-black.html',
-  '/eslemnur_notes/en/ikuran-black.html',
-  '/eslemnur_notes/PWA/icon/favicon2.ico',
-  '/eslemnur_notes/PWA/png/favicon2-96x96.png',
-  '/eslemnur_notes/PWA/manifest/site2.webmanifest',
+  '/official/tr/ikuran-black.html',
+  '/official/de/ikuran-black.html',
+  '/official/en/ikuran-black.html',
+  '/official/PWA/icon/favicon2.ico',
+  '/official/PWA/png/favicon2-96x96.png',
+  '/official/PWA/manifest/site2.webmanifest',
   // İstersen diğer CSS/JS dosyalarını da buraya ekleyebilirsin
 ];
 

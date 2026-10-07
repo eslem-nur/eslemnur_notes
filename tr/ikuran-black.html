@@ -15,24 +15,24 @@
     <meta property="og:title" content="Eslem Nur Çetin | iKuran Siyah>
     <meta property="og:description" content="İlim talebesi ve yazılımcı portfolyosu. Ücretsiz ilmi notlar ve dijital uygulamalar.">
     <meta property="og:image" content="https://i.pinimg.com/474x/0a/cd/85/0acd85ec00ccc7a50823aa2c8a4b18b6.jpg">
-    <meta property="og:url" content="https://eslem-nur.github.io/eslemnur_notes/tr/">
+    <meta property="og:url" content="https://eslem-nur.github.io/official/tr/">
     <meta property="og:type" content="Web App">
     <meta property="og:locale" content="tr_TR">
 
     <!-- PWA Manifest  -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/eslemnur_notes/PWA/png/apple-touch-icon2.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/eslemnur_notes/PWA/png/favicon2-96x96.png" />
-    <link rel="manifest" href="/eslemnur_notes/PWA/manifest/site2.webmanifest" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/official/PWA/png/apple-touch-icon2.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/official/PWA/png/favicon2-96x96.png" />
+    <link rel="manifest" href="/official/PWA/manifest/site2.webmanifest" />
     <meta name="theme-color" content="#000000" />
-    <link rel="icon" type="image/svg+xml" href="/eslemnur_notes/PWA/svg/favicon2.svg" />
-    <link rel="shortcut icon" href="/eslemnur_notes/PWA/icon/favicon2.ico" />
+    <link rel="icon" type="image/svg+xml" href="/official/PWA/svg/favicon2.svg" />
+    <link rel="shortcut icon" href="/official/PWA/icon/favicon2.ico" />
 
     <!-- PWA Service Worker Kaydı -->
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           
-          navigator.serviceWorker.register('/eslemnur_notes/PWA/js-files/sw2.js', { scope: '/eslemnur_notes/' })
+          navigator.serviceWorker.register('/official/PWA/js-files/sw2.js', { scope: '/official/' })
             .then(reg => console.log('Service Worker başarıyla kaydedildi!', reg.scope))
             .catch(err => console.log('Service Worker kaydı başarısız:', err));
         });
